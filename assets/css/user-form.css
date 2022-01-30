@@ -1,0 +1,68 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+#form-container {
+  background: url("../img/kawi-social-background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#form-container::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.726);
+  backdrop-filter: blur(5px);
+}
+.form-card {
+  z-index: 4;
+}
+.logo {
+  width: 100px;
+  height: 80px;
+}
+.rounded {
+  border-radius: 0.625rem;
+}
+#form-container h5 {
+  letter-spacing: 0.2rem;
+}
+.user-form .btn,
+.user-form label {
+  letter-spacing: 0.1rem !important;
+}
+
+.user-form label,
+.user-form input::placeholder,
+.user-form input {
+  color: #10375d;
+}
+.user-form a {
+  letter-spacing: 0.05rem;
+}
+.input-group-text {
+  background: white;
+}
+.input-group-text img {
+  width: 20px;
+  height: 20px;
+}
+.password-input {
+  position: relative;
+}
+.show-password {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  transition: 0.5s;
+  z-index: 6;
+}
+.show-password:hover {
+  cursor: pointer;
+  transform: scale(1.06);
+}

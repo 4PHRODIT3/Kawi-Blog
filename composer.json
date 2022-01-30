@@ -1,0 +1,15 @@
+{
+    "name": "rinnthelegend/kawi-blog",
+    "authors": [
+        {
+            "name": "4PHRODIT3",
+            "email": "b8_htetmyatlinn@uit.edu.mm"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
+}
