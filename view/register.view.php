@@ -1,9 +1,16 @@
 <?php
+
+$header_files[] = BASE_URL.'/assets/css/user-form.css';
+$footer_files[] = BASE_URL.'/assets/js/validation.js';
+  $meta_data['document_title'] = 'Kawi: Admin Panel Register';
   include "./view/template/header.view.php";
 
-  $user = Authentication::check();
-  if (isset($user)) {
+  session_start();
+  if (isset($_SESSION['user']['id'])) {
       redirect('/user/admin');
+  } elseif (isset($_COOKIE['token'])) {
+      $user = Authentication::check();
+      redirect('/user/login');
   }
 ?>
 <section id="form-container" class="min-vh-100">

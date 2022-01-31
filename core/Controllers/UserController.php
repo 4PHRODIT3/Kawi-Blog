@@ -1,5 +1,7 @@
 <?php
 
+// Controller class and methods for the route 'user'
+
 class UserController
 {
     public function index()
@@ -60,7 +62,7 @@ class UserController
 
     public function adminPanel()
     {
-        return renderView('admin', ['content' => "Hello! This is admin panel."]);
+        return renderView('panel', ['content' => "Hello! This is admin panel."]);
     }
     public function logoutUser()
     {

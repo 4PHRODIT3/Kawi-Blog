@@ -27,7 +27,7 @@ class Router
     public function redirect($uri, $method)
     {
         if (!array_key_exists($uri, $this->routes[$method])) {
-            die("404 Page Not Found On This Server!");
+            die(require "./view/404.view.php");
         }
 
         $route_data = $this->routes[$method][$uri];

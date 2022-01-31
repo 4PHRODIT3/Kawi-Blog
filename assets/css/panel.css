@@ -1,0 +1,273 @@
+:root {
+  --primary: #f3f3f3;
+  --light: rgb(255, 255, 255);
+  --muted: #836188;
+  --active: #e07f72;
+  --scroll-bar-thumb: rgb(192, 192, 192);
+}
+
+* {
+  letter-spacing: 0.12rem;
+}
+.content {
+  background: var(--primary);
+  overflow-y: scroll;
+  height: 100vh;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.show-left-side-bar {
+  cursor: pointer;
+}
+
+.show-left-side-bar i {
+  font-size: 1.7rem;
+}
+
+.profile-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(178, 178, 236);
+}
+
+.brand .logo {
+  filter: invert(96%) sepia(2%) saturate(2137%) hue-rotate(166deg)
+    brightness(113%) contrast(97%);
+  width: 120px;
+  height: 70px;
+}
+
+.brand h5 {
+  letter-spacing: 0.18rem;
+  background: #f85032;
+  background: -webkit-linear-gradient(
+    to right,
+    #f85032 0%,
+    #f16f5c 50%,
+    #f6290c 51%,
+    #f02f17 71%,
+    #e73827 100%
+  );
+  background: -moz-linear-gradient(
+    to right,
+    #f85032 0%,
+    #f16f5c 50%,
+    #f6290c 51%,
+    #f02f17 71%,
+    #e73827 100%
+  );
+  background: linear-gradient(
+    to right,
+    #f85032 0%,
+    #f16f5c 50%,
+    #f6290c 51%,
+    #f02f17 71%,
+    #e73827 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search-bar {
+  border-radius: 20px;
+  padding: 15px;
+  width: 450px !important;
+}
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.eclipse-rounded {
+  border-radius: 100% !important;
+}
+
+.button-effect-remove:active,
+.button-effect-remove:focus,
+.button-effect-remove:hover {
+  background-color: #f8f9fa !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.button-effect-remove:active {
+  transform: scale(1.1);
+}
+.left-shadow {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) inset;
+}
+
+.card {
+  border: none;
+}
+
+.status-card {
+  transition: 0.4s;
+}
+
+.status-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.status-card:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.07);
+}
+
+.chart {
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+
+.chart-header-design {
+  margin-bottom: 10px;
+}
+
+.visitor-profiles img {
+  margin-left: -20px;
+}
+.img-overflow {
+  width: 150px;
+  height: 200px;
+}
+.overflow-container {
+  margin-top: -24%;
+}
+.custom-table {
+  margin-bottom: 0px;
+}
+.custom-table tr {
+  font-size: 14px;
+  transition: 0.5s;
+}
+.custom-table tr:hover {
+  cursor: pointer;
+}
+.custom-table tr:active {
+  transform: scale(1.02);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+
+.maximize-table {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  z-index: 2006;
+}
+#item-list {
+  overflow: scroll;
+}
+
+.nav-menu {
+  list-style-type: none;
+  margin-top: 18px;
+  width: 100%;
+  padding: 0;
+}
+.nav-menu .nav-item {
+  display: block;
+  border-radius: 0.25rem;
+  margin-bottom: 5px;
+  margin-left: 30px;
+}
+.nav-menu .nav-item:not(.active):hover {
+  background: #ffb566d2;
+}
+
+.nav-title {
+  color: var(--muted);
+  padding: 10px 0px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.nav-item-link {
+  display: block;
+  padding: 7px 15px;
+}
+
+.nav-item-link span {
+  color: #f6f8f9;
+}
+
+.nav-item-link:hover {
+  color: whitesmoke;
+  text-decoration: none;
+}
+.nav-menu .active {
+  background: var(--active);
+  border-radius: 0.25rem;
+}
+.active .nav-item-link {
+  color: white !important;
+}
+
+.nav-spacing {
+  padding: 10px 0px;
+}
+
+/* Side Bar Scroll Design */
+.left-side-bar {
+  overflow: hidden;
+  background-color: #252733 !important;
+}
+
+.left-side-bar:hover {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.left-side-bar::-webkit-scrollbar {
+  width: 7px;
+}
+.left-side-bar::-webkit-scrollbar-track {
+  border-radius: 10px;
+  box-shadow: inset 0 0 100px var(--primary);
+}
+.left-side-bar::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-thumb);
+  border-radius: 10px;
+}
+
+.my-brand {
+  position: sticky;
+  top: 7px;
+  background: #ffffff;
+  z-index: 2004;
+}
+
+.close-left-side-bar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 40px;
+  font-weight: bolder;
+}
+@media screen and (max-width: 780px) {
+  .show-left-side-bar i {
+    font-size: 2rem;
+  }
+  .left-side-bar {
+    position: fixed;
+    width: 85%;
+    background: var(--light);
+    z-index: 2001;
+    margin-left: -100%;
+    transition: 0.5;
+  }
+  .img-overflow {
+    width: 120px;
+    height: 180px;
+  }
+}

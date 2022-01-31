@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kawi - Admin Panel Login</title>
+    <title><?= $meta_data['document_title'] ?></title>
     <link rel="shortcut icon" href="<?= BASE_URL ?>/assets/icons/kawi-logo.ico" />
     <link
       rel="stylesheet"
@@ -16,7 +16,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/user-form.css" />
+    <?php includeFiles($header_files, 'css'); ?>
+    
   </head>
   <body>
     <div class="container-fluid">

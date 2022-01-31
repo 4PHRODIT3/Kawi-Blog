@@ -36,3 +36,16 @@ function redirect($path, $message='')
     $url = BASE_URL.$path;
     header("Location: $url".$message);
 }
+
+function includeFiles($files, $file_type)
+{
+    if ($file_type == "css") {
+        foreach ($files as $file) {
+            echo "<link rel=stylesheet href='".$file."'>";
+        }
+    } else {
+        foreach ($files as $file) {
+            echo "<script src='".$file."'></script>";
+        }
+    }
+}
