@@ -161,6 +161,8 @@
   position: fixed;
   top: 0px;
   left: 0px;
+  margin: 0 !important;
+  overflow: auto;
   width: 100%;
   height: 100vh;
   z-index: 2006;
@@ -179,7 +181,8 @@
   display: block;
   border-radius: 0.25rem;
   margin-bottom: 5px;
-  margin-left: 30px;
+  margin-left: 10px;
+  font-size: 14px;
 }
 .nav-menu .nav-item:not(.active):hover {
   background: #ffb566d2;
@@ -188,8 +191,8 @@
 .nav-title {
   color: var(--muted);
   padding: 10px 0px;
-  margin-top: 20px;
-  font-size: 18px;
+  margin-top: 5px;
+  font-size: 16px;
 }
 
 .nav-item-link {
@@ -253,6 +256,30 @@
   height: 35px;
   font-size: 40px;
   font-weight: bolder;
+}
+
+.badge-pill {
+  font-size: 12px;
+  letter-spacing: 0.02rem;
+}
+
+.table th,
+.table td {
+  vertical-align: middle !important;
+  text-align: center;
+}
+
+.edit-btn,
+.delete-btn {
+  transition: 0.4s;
+}
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(0.8);
+}
+
+.hidden-form {
+  display: none;
 }
 @media screen and (max-width: 780px) {
   .show-left-side-bar i {

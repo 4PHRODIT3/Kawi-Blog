@@ -33,15 +33,7 @@ $footer_files[] = BASE_URL.'/assets/js/validation.js';
           <div class="px-3 py-2">
             <form action="<?= BASE_URL ?>/user/register" method="POST" class="user-form">
               <div class="col-auto mb-3">
-                <?php if (isset($_GET['error'])): ?>
-                  <div class="alert alert-danger" role="alert">
-                    <?= $_GET['error'] ?>
-                  </div>
-                <?php elseif (isset($_GET['success'])): ?>
-                  <div class="alert alert-success" role="alert">
-                    <?= $_GET['success'] ?>
-                  </div>
-                <?php endif ?>
+                <?php printAlert() ?>
               </div>
               <div class="col-auto mb-3">
                 <label for="username">Username</label>

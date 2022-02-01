@@ -9,6 +9,7 @@ class ComposerStaticInit729f42a106d64e95b6d5a5b67b0eb8e7
     public static $classMap = array (
         'App' => __DIR__ . '/../..' . '/core/App.php',
         'Authentication' => __DIR__ . '/../..' . '/core/Auth/Authentication.php',
+        'CategoryController' => __DIR__ . '/../..' . '/core/Controllers/CategoryController.php',
         'ComposerAutoloaderInit729f42a106d64e95b6d5a5b67b0eb8e7' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit729f42a106d64e95b6d5a5b67b0eb8e7' => __DIR__ . '/..' . '/composer/autoload_static.php',

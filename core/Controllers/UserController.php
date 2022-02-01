@@ -22,10 +22,10 @@ class UserController
     {
         $user_data = $_POST;
         if (!validateForm($user_data)) {
-            redirect('/user/register', 'error=Please Fill Missing Fields');
+            redirect('/user/register', '?error=Please Fill Missing Fields');
         }
         if ($user_data['password'] != $user_data['confirm-password']) {
-            redirect('/user/register', 'error=Passwords Must Be The Same');
+            redirect('/user/register', '?error=Passwords Must Be The Same');
         }
         $insert_data = [
             'name' => $user_data['username'],
@@ -33,18 +33,18 @@ class UserController
             'password' => password_hash($user_data['password'], PASSWORD_BCRYPT),
         ];
         App::getData('query_builder')->create('users', $insert_data);
-        redirect('/user/register', 'success=Success! Please Login');
+        redirect('/user/register', '?success=Success! Please Login');
     }
 
     public function loginUser()
     {
         $login_data = $_POST;
         if (!validateForm($login_data)) {
-            redirect('/user/login', 'error=Please Fill Missing Fields');
+            redirect('/user/login', '?error=Please Fill Missing Fields');
         }
         $user_data = App::getData('query_builder')->retrieve('users', ['email' => $login_data['email']])[0];
         if (empty($user_data) || !password_verify($login_data['password'], $user_data['password'])) {
-            redirect('/user/login', 'error=Invalid Credentials');
+            redirect('/user/login', '?error=Invalid Credentials');
         }
         if (isset($login_data['cookie-login'])) {
             $token = implode("~", [$user_data['name'],$user_data['password'],$user_data['created_at'],rand(1111, 9999)]);

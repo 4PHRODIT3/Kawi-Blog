@@ -49,3 +49,13 @@ function includeFiles($files, $file_type)
         }
     }
 }
+
+function printAlert()
+{
+    if (isset($_GET['error'])) {
+        echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+    }
+    if (isset($_GET['success'])) {
+        echo "<div class='alert alert-success' role='alert'>".$_GET['success']."</div>";
+    }
+}

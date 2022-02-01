@@ -47,9 +47,19 @@ class QueryBuilder
         $array_values = array_values($data);
         $array_values[] = array_values($filter_data)[0];
 
-        $query = "UPDATE users SET $values WHERE $filter_query";
+        $query = "UPDATE $table SET $values WHERE $filter_query";
         $statement = $this->pdo->prepare($query);
         $statement->execute($array_values);
+        return $statement->rowCount();
+    }
+
+    public function delete($table, $filter_data)
+    {
+        $filter_query = array_keys($filter_data)[0]."=?";
+        $query = "DELETE FROM $table WHERE $filter_query";
+        $statement = $this->pdo->prepare($query);
+        
+        $statement->execute([array_values($filter_data)[0]]);
         return $statement->rowCount();
     }
 
