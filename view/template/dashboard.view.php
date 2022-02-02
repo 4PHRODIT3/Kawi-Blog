@@ -31,7 +31,7 @@
                  Users
             </li>
             <li class="nav-item">
-                <a href="items_add.html" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Manage User</span></a>
+                <a href="<?= BASE_URL ?>/user" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Manage Users</span></a>
             </li>
             <li class="nav-item">
                 <a href="item_list.html" class="nav-item-link">

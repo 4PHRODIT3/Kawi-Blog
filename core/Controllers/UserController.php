@@ -6,6 +6,8 @@ class UserController
 {
     public function index()
     {
+        $users_data = ['users' => App::getData('query_builder')->retrieve('users')];
+        renderView('users', $users_data);
     }
 
     public function login()
@@ -39,30 +41,48 @@ class UserController
     public function loginUser()
     {
         $login_data = $_POST;
+        
         if (!validateForm($login_data)) {
             redirect('/user/login', '?error=Please Fill Missing Fields');
         }
         $user_data = App::getData('query_builder')->retrieve('users', ['email' => $login_data['email']])[0];
         if (empty($user_data) || !password_verify($login_data['password'], $user_data['password'])) {
             redirect('/user/login', '?error=Invalid Credentials');
+        } else {
+            if (isset($login_data['cookie-login'])) {
+                $token = implode("~", [$user_data['name'],$user_data['password'],$user_data['created_at'],rand(1111, 9999)]);
+                $duration = time() + 3600 * 24 * 30;
+                setcookie("token", $token, $duration, '/');
+                App::getData('query_builder')->update('users', [
+                    'cookie_login' => $token,
+                    'updated_at' => date('Y-m-d H:i:s')
+                ], ['email' => $login_data['email']]);
+            }
+            session_start();
+            $_SESSION['user'] = $user_data;
+            redirect("/user/admin");
         }
-        if (isset($login_data['cookie-login'])) {
-            $token = implode("~", [$user_data['name'],$user_data['password'],$user_data['created_at'],rand(1111, 9999)]);
-            $duration = time() + 3600 * 24 * 30;
-            setcookie("token", $token, $duration, '/');
-            App::getData('query_builder')->update('users', [
-                'cookie_login' => $token,
-                'updated_at' => date('Y-m-d H:i:s')
-            ], ['email' => $login_data['email']]);
-        }
-        session_start();
-        $_SESSION['user'] = $user_data;
-        redirect("/user/admin");
     }
 
     public function adminPanel()
     {
-        return renderView('panel', ['content' => "Hello! This is admin panel."]);
+        return renderView('panel');
+    }
+
+    public function updateRole()
+    {
+        $data = $_GET;
+        if (empty($data['id'] || empty($data['role_id']))) {
+            redirect('/user', '?error=Unable To Update Role!');
+        } else {
+            $obj_data = App::getData('query_builder')->retrieve('users', ['id' => $data['id']])[0];
+            if (Authorization::checkSuperUser() > $obj_data['role_id']) {
+                App::getData('query_builder')->update('users', ['role_id' => $_GET['role_id']], ['id' => $_GET['id']]);
+                redirect('/user', "?success=Successfully Updated the Role!");
+            } else {
+                renderView('403');
+            }
+        }
     }
     public function logoutUser()
     {

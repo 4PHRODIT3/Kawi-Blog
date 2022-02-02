@@ -39,13 +39,15 @@ function redirect($path, $message='')
 
 function includeFiles($files, $file_type)
 {
-    if ($file_type == "css") {
-        foreach ($files as $file) {
-            echo "<link rel=stylesheet href='".$file."'>";
-        }
-    } else {
-        foreach ($files as $file) {
-            echo "<script src='".$file."'></script>";
+    if (!empty($files)) {
+        if ($file_type == "css") {
+            foreach ($files as $file) {
+                echo "<link rel=stylesheet href='".$file."'>";
+            }
+        } else {
+            foreach ($files as $file) {
+                echo "<script src='".$file."'></script>";
+            }
         }
     }
 }

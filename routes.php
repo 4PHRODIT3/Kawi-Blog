@@ -13,3 +13,5 @@ $router->post("category", [CategoryController::class,'createCategory']);
 $router->get("category/manipulate", [CategoryController::class,'manipulateCategory']);
 $router->post("category/manipulate/edit", [CategoryController::class,'editCategory']);
 $router->get("category/manipulate/delete", [CategoryController::class,'deleteCategory']);
+$router->get("user", [UserController::class,'index']);
+$router->get("user/manipulate/role", [UserController::class,'updateRole']);

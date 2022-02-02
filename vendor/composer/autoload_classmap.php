@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App' => $baseDir . '/core/App.php',
     'Authentication' => $baseDir . '/core/Auth/Authentication.php',
+    'Authorization' => $baseDir . '/core/Auth/Authorization.php',
     'CategoryController' => $baseDir . '/core/Controllers/CategoryController.php',
     'ComposerAutoloaderInit729f42a106d64e95b6d5a5b67b0eb8e7' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',

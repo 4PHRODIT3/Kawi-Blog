@@ -281,6 +281,13 @@
 .hidden-form {
   display: none;
 }
+.table .active {
+  background-color: #454658 !important;
+  color: var(--primary);
+}
+.show-dropdown {
+  display: inline-block !important;
+}
 @media screen and (max-width: 780px) {
   .show-left-side-bar i {
     font-size: 2rem;

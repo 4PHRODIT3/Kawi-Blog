@@ -59,3 +59,8 @@ function remove(element) {
 }
 
 setActiveSidebar();
+
+function showDropdown(element) {
+  let dropdown = element.nextElementSibling;
+  dropdown.classList.toggle("show-dropdown");
+}
