@@ -2,6 +2,8 @@
 
 // Controller class and methods for the route 'user'
 
+use function PHPSTORM_META\type;
+
 class UserController
 {
     public function index()
@@ -46,21 +48,27 @@ class UserController
             redirect('/user/login', '?error=Please Fill Missing Fields');
         }
         $user_data = App::getData('query_builder')->retrieve('users', ['email' => $login_data['email']])[0];
-        if (empty($user_data) || !password_verify($login_data['password'], $user_data['password'])) {
-            redirect('/user/login', '?error=Invalid Credentials');
-        } else {
-            if (isset($login_data['cookie-login'])) {
-                $token = implode("~", [$user_data['name'],$user_data['password'],$user_data['created_at'],rand(1111, 9999)]);
-                $duration = time() + 3600 * 24 * 30;
-                setcookie("token", $token, $duration, '/');
+        if (intval($user_data['banned']) !== intval(1)) {
+            if (empty($user_data) || !password_verify($login_data['password'], $user_data['password'])) {
+                redirect('/user/login', '?error=Invalid Credentials');
+            } else {
+                $token = '';
+                if (isset($login_data['cookie-login'])) {
+                    $token = implode("~", [$user_data['name'],$user_data['password'],$user_data['created_at'],rand(1111, 9999)]);
+                    $duration = time() + 3600 * 24 * 30;
+                    setcookie("token", $token, $duration, '/');
+                }
+                session_start();
+                $_SESSION['user'] = $user_data;
                 App::getData('query_builder')->update('users', [
                     'cookie_login' => $token,
+                    'session_id' => session_id(),
                     'updated_at' => date('Y-m-d H:i:s')
                 ], ['email' => $login_data['email']]);
+                redirect("/user/admin");
             }
-            session_start();
-            $_SESSION['user'] = $user_data;
-            redirect("/user/admin");
+        } else {
+            redirect('/user/login', '?error=You Have Been Banned! Contact Admin.');
         }
     }
 
@@ -76,14 +84,37 @@ class UserController
             redirect('/user', '?error=Unable To Update Role!');
         } else {
             $obj_data = App::getData('query_builder')->retrieve('users', ['id' => $data['id']])[0];
-            if (Authorization::checkSuperUser() > $obj_data['role_id']) {
-                App::getData('query_builder')->update('users', ['role_id' => $_GET['role_id']], ['id' => $_GET['id']]);
+            if (compareUsers(Authorization::checkSuperUser()['role_id'], $obj_data['role_id'])) {
+                App::getData('query_builder')->update('users', ['role_id' => $data['role_id']], ['id' => $data['id']]);
                 redirect('/user', "?success=Successfully Updated the Role!");
             } else {
                 renderView('403');
             }
         }
     }
+    public function banUser()
+    {
+        $ban_data = $_GET;
+        if (empty($ban_data['id'])) {
+            redirect('/user', '?error=Unable To Ban User');
+        } else {
+            $obj_data = App::getData('query_builder')->retrieve('users', ['id' => $ban_data['id']])[0];
+            if (compareUsers(Authorization::checkSuperUser()['role_id'], $obj_data['role_id'])) {
+                $banned_status = $ban_data['banned'] === 'true' ? 1 : 0;
+                if ($banned_status == 1 && !empty($obj_data['session_id'])) {
+                    $my_sessid = session_id();
+                    session_commit();
+                    killSession($obj_data['session_id']);
+                    restoreSession($my_sessid);
+                }
+                App::getData('query_builder')->update('users', ['banned' => $banned_status,'cookie_login' => ''], ['id' => $ban_data['id']]);
+                redirect('/user', "?success=Successfully Done!");
+            } else {
+                renderView('403');
+            }
+        }
+    }
+
     public function logoutUser()
     {
         session_start();

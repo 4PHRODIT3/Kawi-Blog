@@ -15,3 +15,4 @@ $router->post("category/manipulate/edit", [CategoryController::class,'editCatego
 $router->get("category/manipulate/delete", [CategoryController::class,'deleteCategory']);
 $router->get("user", [UserController::class,'index']);
 $router->get("user/manipulate/role", [UserController::class,'updateRole']);
+$router->get("user/manipulate/ban", [UserController::class,'banUser']);

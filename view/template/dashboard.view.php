@@ -1,4 +1,9 @@
-
+<?php
+    $auth = Authentication::check();
+    if ($auth['role_id'] < 1) {
+        renderView('403');
+    }
+?>
 <div class="row">
     <!-- Side Bar -->
 <div class="col-12 col-lg-3 col-xl-2 left-side-bar vh-100">
@@ -27,36 +32,37 @@
                     <span><i class="feather feather-home"></i> Statistics</span>
                 </a>
             </li>
-            <li class="nav-title">
-                 Users
-            </li>
-            <li class="nav-item">
-                <a href="<?= BASE_URL ?>/user" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Manage Users</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="item_list.html" class="nav-item-link">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span><i class="feather feather-list"></i> Pre Users</span>
-                        <div class="badge badge-pill bg-white text-primary shadow-sm">15</div>
+            <?php if ($auth['role_id'] > 1):?>
+                <li class="nav-title">
+                    Users
+                </li>
+                <li class="nav-item">
+                    <a href="<?= BASE_URL ?>/user" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Manage Users</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="item_list.html" class="nav-item-link">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span><i class="feather feather-list"></i> Pre Users</span>
+                            <div class="badge badge-pill bg-white text-primary shadow-sm">15</div>
 
-                    </div>
-                </a>
-            </li>
-            <li class="nav-title">
-                 Categories
-            </li>
-            <li class="nav-item">
-                <a href="<?= BASE_URL ?>/category" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Category List</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="/category/manipulate" class="nav-item-link">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span><i class="feather feather-list"></i>Category Manage</span>
-                    </div>
-                </a>
-            </li>
+                        </div>
+                    </a>
+                </li>
+                    <li class="nav-title">
+                        Categories
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= BASE_URL ?>/category" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Category List</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/category/manipulate" class="nav-item-link">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span><i class="feather feather-list"></i>Category Manage</span>
+                            </div>
+                        </a>
+                    </li>
 
-            </li>
+                <?php endif ?>
             <!-- <li class="nav-title">
                 Manage Item
             </li>

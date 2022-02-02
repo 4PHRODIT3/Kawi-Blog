@@ -1,5 +1,7 @@
 <?php
 
+use Helpers\Sessions;
+
 function dd($data)
 {
     echo "<pre>";
@@ -60,4 +62,27 @@ function printAlert()
     if (isset($_GET['success'])) {
         echo "<div class='alert alert-success' role='alert'>".$_GET['success']."</div>";
     }
+}
+
+function compareUsers($user_role, $obj_role)
+{
+    if ($user_role > $obj_role) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function killSession($obj_sessid)
+{
+    session_id($obj_sessid);
+    session_start();
+    session_destroy();
+    session_commit();
+}
+
+function restoreSession($my_sessid)
+{
+    session_id($my_sessid);
+    session_start();
 }

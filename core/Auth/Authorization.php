@@ -5,9 +5,10 @@ class Authorization
     public static function checkSuperUser()
     {
         $auth = Authentication::check();
+        
         if (isset($auth)) {
-            if ($auth['role_id'] >= 2) {
-                return $auth['role_id'];
+            if ($auth['role_id'] > 1) {
+                return $auth;
             } else {
                 renderView('403');
             }

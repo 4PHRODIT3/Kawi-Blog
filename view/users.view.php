@@ -1,6 +1,6 @@
 <?php
 
-    $auth = Authentication::check();
+    $auth = Authorization::checkSuperUser();
     $header_files[] = BASE_URL.'/assets/css/panel.css';
     $footer_files[] =  BASE_URL."/assets/js/panel.js";
     $meta_data['document_title'] = 'Kawi: Admin Panel';
@@ -40,7 +40,7 @@
                                                 <?php if ($user['role_id'] != 2): ?>
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-info dropdown-toggle" onclick="showDropdown(this)">
-                                                            Change Role
+                                                            Role Update
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <?php if ($user['role_id'] == 1): ?>
@@ -55,7 +55,7 @@
                                                             
                                                         </div>
                                                     </div>
-                                                    <a href="/user/manipulate/ban/id=<?= $user['id']  ?>" class="btn btn-danger">Ban</a>
+                                                    <a href="/user/manipulate/ban?id=<?= $user['id']?>&banned=<?= $user['banned']==0 ? 'true' : 'false' ?>" class="btn btn-danger"><?= $user['banned']==0 ? 'Ban' : 'Unban' ?></a>
                                                 <?php endif ?>
                                             </td>
                                             <td><?= date('d M Y', strtotime($user['created_at'])) ?></td>
