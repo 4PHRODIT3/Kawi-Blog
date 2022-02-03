@@ -288,6 +288,10 @@
 .show-dropdown {
   display: inline-block !important;
 }
+.spaceing-sm {
+  letter-spacing: 0.12rem !important;
+  color: blue;
+}
 @media screen and (max-width: 780px) {
   .show-left-side-bar i {
     font-size: 2rem;

@@ -57,7 +57,7 @@
                                                     <img src="<?= BASE_URL ?>/assets/icons/icons8-edit.svg" alt="Edit Icon" class="icon">
                                                 </button>
                                                 <button data-id="<?= $category['id'] ?>" class="btn p-1 btn-transparent delete-btn" onclick="remove(this)">
-                                                    <img src="<?= BASE_URL ?>/assets/icons/icons8-delete.svg" alt="Delete Icon" class="icon">
+                                                    <img src="<?= BASE_URL ?>/assets/icons/icons8-trash.svg" alt="Delete Icon" class="icon">
                                                 </button>
                                             </div></td>
                                     </tr>

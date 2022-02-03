@@ -62,7 +62,20 @@
                         </a>
                     </li>
 
-                <?php endif ?>
+            <?php endif ?>
+            <li class="nav-title">
+                Articles
+            </li>
+            <li class="nav-item">
+                <a href="<?= BASE_URL ?>/article" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Article Add</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="/article/manipulate" class="nav-item-link">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><i class="feather feather-list"></i>Article Manipulate</span>
+                    </div>
+                </a>
+            </li>
             <!-- <li class="nav-title">
                 Manage Item
             </li>

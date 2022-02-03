@@ -86,3 +86,35 @@ function restoreSession($my_sessid)
     session_id($my_sessid);
     session_start();
 }
+
+function filter($string)
+{
+    $string = htmlentities(stripslashes(trim($string)), ENT_QUOTES);
+    return $string;
+}
+
+
+function generateCSRFToken()
+{
+    $token = bin2hex(random_bytes(32));
+    $_SESSION['user']['csrf_token'] = $token;
+    return $token;
+}
+
+function checkCSRF($token)
+{
+    $session_token = $_SESSION['user']['csrf_token'];
+    if ($session_token == $token) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function filterFromDBData($data_array, $key)
+{
+    $result_data = array_filter($data_array, function ($d) use ($key) {
+        return $d['id'] == $key;
+    });
+    return $result_data[array_keys($result_data)[0]];
+}
