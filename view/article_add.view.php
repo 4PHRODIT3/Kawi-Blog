@@ -12,9 +12,9 @@
     
 ?>
 <form class="p-0" action="/article" method="POST" enctype="multipart/form-data">
-    <div class="row">
-            <div class="col-12 col-lg-9 ">
-                <div class="card my-5">
+    <div class="row flex-column-reverse flex-lg-row">
+            <div class="col-12 col-lg-8 col-xl-9">
+                <div class="card my-3 my-lg-5">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h4>Create New Content</h4>
                         <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
@@ -45,7 +45,7 @@
                 </div>
                 
             </div>
-            <div class="col-12 col-lg-3 my-5">
+            <div class="col-12 col-lg-4 my-4 my-lg-5 col-xl-3">
                 <div class="card">
                     <div class="card-header">
                         <h4>Tag A Category</h4>

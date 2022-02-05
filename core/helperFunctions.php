@@ -87,12 +87,30 @@ function restoreSession($my_sessid)
     session_start();
 }
 
-function filter($string)
+function cleanString($string)
 {
     $string = htmlentities(stripslashes(trim($string)), ENT_QUOTES);
     return $string;
 }
 
+function removeStyles($string)
+{
+    return strip_tags(htmlspecialchars_decode($string));
+}
+
+function beautifyStyles($string)
+{
+    return html_entity_decode($string);
+}
+
+function compressText($string)
+{
+    if (strlen($string) > 120) {
+        return substr($string, 0, 120).'....';
+    } else {
+        return $string;
+    }
+}
 
 function generateCSRFToken()
 {

@@ -5,7 +5,7 @@ class CategoryController
     public function index()
     {
         $data = ['categories' => App::getData('query_builder')->retrieve('categories')];
-        renderView('category', $data);
+        renderView('categories', $data);
     }
 
     public function createCategory()
@@ -15,7 +15,7 @@ class CategoryController
             redirect('/category', '?error=Fill out all Informations!');
         }
         App::getData('query_builder')->create('categories', [
-            'title' => $category_data['category_name'],
+            'title' => strip_tags(trim($category_data['category_name'])),
             'user_id' => $category_data['user_id'],
         ]);
         redirect('/category', '?success=Added Successfully!');
@@ -32,7 +32,7 @@ class CategoryController
         if (!isset($_POST['category_id']) || !isset($_POST['category_name'])) {
             redirect('/category/manipulate', '?error=Please fill all the fields!');
         }
-        App::getData('query_builder')->update('categories', ['title' => $_POST['category_name']], ['id' => $_POST['category_id']]);
+        App::getData('query_builder')->update('categories', ['title' => strip_tags(trim($_POST['category_name']))], ['id' => $_POST['category_id']]);
         redirect('/category/manipulate', '?success=Updated Successfully!');
     }
 

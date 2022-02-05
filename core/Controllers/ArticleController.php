@@ -14,7 +14,13 @@ class ArticleController
         
         if (checkCSRF($article_data['csrf_token'])) {
             if (validateForm($article_data)) {
-                App::getData('query_builder')->create('articles', ['title' => $article_data['article_title'],'description' => $article_data['article_description'],'contents' => $article_data['article_contents'],'category_id' => $article_data['category_id'],'user_id' => $auth['id']]);
+                App::getData('query_builder')->create('articles', [
+                    'title' => cleanString($article_data['article_title']),
+                    'description' => cleanString($article_data['article_description']),
+                    'contents' => cleanString($article_data['article_contents']),
+                    'category_id' => $article_data['category_id'],
+                    'user_id' => $auth['id']
+                ]);
                 redirect('/article/manipulate', '?success=Action Confirmed! Hope You Get More Viewers.');
             } else {
                 redirect('/article', '?error=Please Fill Required Fields');
@@ -53,7 +59,15 @@ class ArticleController
         
         if (checkCSRF($article_data['csrf_token'])) {
             if (validateForm($article_data)) {
-                App::getData('query_builder')->update('articles', ['title' => $article_data['article_title'],'description' => $article_data['article_description'],'contents' => $article_data['article_contents'],'category_id' => $article_data['category_id'],'user_id' => $auth['id']], ['id' => $article_data['id']]);
+                App::getData('query_builder')->update('articles', [
+                    'title' => cleanString($article_data['article_title']),
+                    'description' => cleanString($article_data['article_description']),
+                    'contents' => cleanString($article_data['article_contents']),
+                    'category_id' => $article_data['category_id'],
+                    'user_id' => $auth['id']
+                ], [
+                    'id' => $article_data['id']
+                ]);
                 redirect('/article/manipulate', '?success=Edit Successfully!');
             } else {
                 redirect('/article', '?error=Please Fill Required Fields');
@@ -72,6 +86,23 @@ class ArticleController
             redirect('/article/manipulate', '?success=Delete Successfully');
         } else {
             renderView('403');
+        }
+    }
+
+    public function previewArticle()
+    {
+        $article_id = $_GET['id'];
+        $auth = Authorization::checkAuthor();
+
+        if (isset($article_id)) {
+            $article = App::getData('query_builder')->retrieve('articles', ['id' => $article_id])[0];
+            $data = ['article' => $article,
+                     'author' => App::getData('query_builder')->retrieve('users', ['id' => $article['user_id']])[0],
+                     'category' => App::getData('query_builder')->retrieve('categories', ['id' => $article['category_id']])[0],
+                    ];
+            renderView('preview_article', $data);
+        } else {
+            renderView('404');
         }
     }
 }

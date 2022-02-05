@@ -11,7 +11,7 @@
 ?>
 
     <div class="row">
-        <div class="col-12 col-lg-10  ">
+        <div class="col-12 col-lg-10 col-xl-9">
             <div class="card my-5">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4>Users Management</h4>
@@ -19,13 +19,14 @@
                 </div>
                 <div class="card-body">
                     <?php printAlert(); ?>
-                    <table class="table table-striped table-responsive-sm">
+                    <table class="table table-striped table-responsive-sm mb-4">
                             <thead>
                                 <tr class="text-center">
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Role</th>
-                                    <th scope="col">Manipulate</th>
+                                    <th scope="col">Ban</th>
+                                    <th scope="col">Update Roles</th>
                                     <th scope="col">Joined At</th>
                                 </tr>
                             </thead>
@@ -38,11 +39,16 @@
                                             <td><?= ROLES[$user['role_id']]['role'] ?></td>
                                             <td>
                                                 <?php if ($user['role_id'] != 2): ?>
+                                                    <a href="/user/manipulate/ban?id=<?= $user['id']?>&banned=<?= $user['banned']==0 ? 'true' : 'false' ?>" class="btn btn-danger"><?= $user['banned']==0 ? 'Ban' : 'Unban' ?></a>
+                                                <?php endif ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($user['role_id'] != 2): ?>
                                                     <div class="btn-group">
-                                                        <button type="button" class="btn btn-info dropdown-toggle" onclick="showDropdown(this)">
-                                                            Role Update
+                                                        <button type="button" class="btn btn-info dropdown-toggle" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,0,this)">
+                                                            Roles
                                                         </button>
-                                                        <div class="dropdown-menu">
+                                                        <div class="dropdown-menu" >
                                                             <?php if ($user['role_id'] == 1): ?>
                                                                 <a class="dropdown-item" href="/user/manipulate/role?id=<?= $user['id'] ?>&role_id=2" onclick="return confirm('Are you sure want to change this user\'s role?')">Admin</a>
                                                                 <div class="dropdown-divider"></div>
@@ -55,9 +61,10 @@
                                                             
                                                         </div>
                                                     </div>
-                                                    <a href="/user/manipulate/ban?id=<?= $user['id']?>&banned=<?= $user['banned']==0 ? 'true' : 'false' ?>" class="btn btn-danger"><?= $user['banned']==0 ? 'Ban' : 'Unban' ?></a>
+                                                    
                                                 <?php endif ?>
                                             </td>
+                                            
                                             <td><?= date('d M Y', strtotime($user['created_at'])) ?></td>
                                     </tr>
                                 <?php endforeach ?>

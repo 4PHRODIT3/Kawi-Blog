@@ -1,5 +1,6 @@
 <?php
     $auth = Authentication::check();
+    
     if ($auth['role_id'] < 1) {
         renderView('403');
     }
@@ -19,7 +20,7 @@
         <button
         class="btn btn-transparent close-left-side-bar d-flex justify-content-center align-items-center d-lg-none" 
         >
-            <h6 class="text-light">X</h6>
+            <img src="<?= BASE_URL ?>/assets/icons/icons8-close.svg" alt="Close Icon" class="icon">
         </button>
     </div>
     <div class="col-12">
@@ -76,42 +77,7 @@
                     </div>
                 </a>
             </li>
-            <!-- <li class="nav-title">
-                Manage Item
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Add Item</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-item-link">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span><i class="feather feather-list"></i> Item List</span>
-                        <div class="badge badge-pill bg-white text-primary shadow-sm">15</div>
-
-                    </div>
-                </a>
-            </li>
-            <li class="nav-spacing">
-
-            </li>
-            <li class="nav-title">
-                Manage Item
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Add Item</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="" class="nav-item-link">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span><i class="feather feather-list"></i> Item List</span>
-                        <div class="badge badge-pill bg-white text-primary shadow-sm">15</div>
-
-                    </div>
-                </a>
-            </li>
-            <li class="nav-spacing">
-
-            </li> -->
+            
         </ul>
     </div>
     </div>
@@ -155,17 +121,24 @@
                     class="icon "
                     />
                 </button>
-                <button
-                    class="btn btn-light btn-sm mr-0 mr-xl-4 p-1"
-                    type="button"
-                    style="border-radius: 50%"
-                >
-                    <img
-                    src="<?= BASE_URL ?>/assets/img/<?= $auth['image'] ?>"
-                    alt="Profile Image"
-                    class="profile-avatar"
-                    />
-                </button>
+                
+                <div class="btn-group">
+                    <button type="button" class="btn btn-light btn-sm mr-0 mr-xl-4 p-1"  style="border-radius: 50%" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,0,this)">
+                        <img
+                        src="<?= BASE_URL ?>/assets/img/<?= $auth['image'] ?>"
+                        alt="Profile Image"
+                        class="profile-avatar"
+                        />
+                    </button>
+                    <div class="dropdown-menu">
+                        
+                        <a class="dropdown-item py-2 px-3" href="/user/profile?id=<?= $user['id'] ?>">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item py-2 px-3" href="/user/logout" onclick="return confirm('Are you sure want to logout?')">Logout</a>
+                    
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>

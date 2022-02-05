@@ -64,3 +64,8 @@ function showDropdown(element) {
   let dropdown = element.nextElementSibling;
   dropdown.classList.toggle("show-dropdown");
 }
+
+function hideDropdown(element) {
+  let dropdown = element.nextElementSibling;
+  dropdown.classList.remove("show-dropdown");
+}

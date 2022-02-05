@@ -13,11 +13,10 @@ class Authentication
             $user = Authentication::cookieLogin();
             $_SESSION['user'] = $user[0];
             App::getData('query_builder')->update("users", ['session_id' => session_id()], ['id' => $_SESSION['user']['id']]);
+            return $user[0];
         } else {
             redirect('/user/login', '?error=Please Login to Continue');
         }
-        
-        return $user;
     }
 
     public static function cookieLogin()

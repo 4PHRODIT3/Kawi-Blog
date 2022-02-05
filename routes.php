@@ -35,3 +35,4 @@ $router->get("article/manipulate", [ArticleController::class,'mainpulateArticle'
 $router->get("article/manipulate/edit", [ArticleController::class,'editArticle']);
 $router->post("article/manipulate/edit", [ArticleController::class,'updateArticle']);
 $router->get("article/manipulate/delete", [ArticleController::class,'deleteArticle']);
+$router->get("articles", [ArticleController::class,'previewArticle']);

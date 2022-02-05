@@ -43,9 +43,9 @@
                                 <?php foreach ($articles as $key => $article): ?>
                                     <tr>
                                         <th scope="row"><?= $key + 1 ?></th>
-                                        <td><?= $article['title'] ?></td>
-                                        <td><?= $article['description'] ?></td>
-                                        <td><?= $article['contents'] ?></td>
+                                        <td><?= removeStyles($article['title']) ?></td>
+                                        <td><?= compressText(removeStyles($article['description'])) ?></td>
+                                        <td><?= compressText(removeStyles($article['contents'])) ?></td>
                                         <?php $category = filterFromDBData($categories, $article['category_id']); ?>
                                         <td><?= $category['title'] ?></td>
                                         <?php $user = filterFromDBData($users, $article['user_id']); ?>
