@@ -272,11 +272,13 @@
 }
 
 .edit-btn,
-.delete-btn {
+.delete-btn,
+.btn-transparent {
   transition: 0.4s;
 }
 .edit-btn:hover,
-.delete-btn:hover {
+.delete-btn:hover,
+.btn-transparent:hover {
   transform: scale(0.8);
 }
 
@@ -309,12 +311,20 @@
   font-size: 0.8em;
   margin-bottom: 2px !important;
   margin-left: 15px;
+  line-height: 1rem !important;
 }
 
 .custom-line-spacing {
   border: 1px solid rgba(211, 211, 211, 0.5);
   border-radius: 1px;
   background-color: rgba(211, 211, 211, 0.5);
+}
+
+.article-body *:not(span, b) {
+  line-height: 2em !important;
+}
+.article-body img:not(.author-avatar) {
+  height: 100%;
 }
 @media screen and (max-width: 780px) {
   .show-left-side-bar i {
@@ -337,5 +347,6 @@
   }
   h1 {
     font-size: 25px !important;
+    line-height: 2em;
   }
 }

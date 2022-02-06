@@ -45,7 +45,7 @@
                                             <td>
                                                 <?php if ($user['role_id'] != 2): ?>
                                                     <div class="btn-group">
-                                                        <button type="button" class="btn btn-info dropdown-toggle" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,0,this)">
+                                                        <button type="button" class="btn btn-info dropdown-toggle" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,500,this)">
                                                             Roles
                                                         </button>
                                                         <div class="dropdown-menu" >

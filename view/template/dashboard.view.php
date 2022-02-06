@@ -123,7 +123,7 @@
                 </button>
                 
                 <div class="btn-group">
-                    <button type="button" class="btn btn-light btn-sm mr-0 mr-xl-4 p-1"  style="border-radius: 50%" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,0,this)">
+                    <button type="button" class="btn btn-light btn-sm mr-0 mr-xl-4 p-1"  style="border-radius: 50%" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,300,this)">
                         <img
                         src="<?= BASE_URL ?>/assets/img/<?= $auth['image'] ?>"
                         alt="Profile Image"
@@ -136,7 +136,6 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item py-2 px-3" href="/user/logout" onclick="return confirm('Are you sure want to logout?')">Logout</a>
                     
-                        
                     </div>
                 </div>
             </div>

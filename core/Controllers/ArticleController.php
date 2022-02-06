@@ -80,7 +80,7 @@ class ArticleController
     public function deleteArticle()
     {
         $article_id = $_GET['id'];
-        $auth = Authorization::checkAuthor();
+        $auth = Authorization::checkSuperUser();
         if (checkCSRF($_GET['csrf_token'])) {
             App::getData('query_builder')->delete('articles', ['id' => $article_id]);
             redirect('/article/manipulate', '?success=Delete Successfully');

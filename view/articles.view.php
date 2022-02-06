@@ -28,6 +28,7 @@
                             <thead>
                                 <tr class="text-center">
                                     <th scope="col">ID</th>
+                                    <th scope="col">Preview</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Contents</th>
@@ -43,13 +44,14 @@
                                 <?php foreach ($articles as $key => $article): ?>
                                     <tr>
                                         <th scope="row"><?= $key + 1 ?></th>
+                                        <td><a href="/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
                                         <td><?= removeStyles($article['title']) ?></td>
                                         <td><?= compressText(removeStyles($article['description'])) ?></td>
                                         <td><?= compressText(removeStyles($article['contents'])) ?></td>
                                         <?php $category = filterFromDBData($categories, $article['category_id']); ?>
                                         <td><?= $category['title'] ?></td>
                                         <?php $user = filterFromDBData($users, $article['user_id']); ?>
-                                        <td><?= $user['name'] ?></td>
+                                        <td class="text-nowrap"><?= $user['name'] ?></td>
                                         <td><?= date('d M Y', strtotime($article['created_at'])) ?></td>
                                         <td><?= date('d M Y', strtotime($article['updated_at'])) ?></td>
                                         <td>

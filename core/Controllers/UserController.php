@@ -65,7 +65,11 @@ class UserController
                     'session_id' => session_id(),
                     'updated_at' => date('Y-m-d H:i:s')
                 ], ['email' => $login_data['email']]);
-                redirect("/user/admin");
+                if ($user_data['role_id'] > 0) {
+                    redirect("/user/admin");
+                } else {
+                    redirect('/');
+                }
             }
         } else {
             redirect('/user/login', '?error=You Have Been Banned! Contact Admin.');
