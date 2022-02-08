@@ -41,9 +41,11 @@
                             </div>
                         </div>
                         <hr class="custom-line-spacing">
-                        <div class="my-4 text-center">
-                            <img class="rounded w-100" src="<?= !empty($article['headline_img']) ?  BASE_URL.'/assets/uploads/img/'.['headline_img'] : 'https://images.pexels.com/photos/6663/desk-white-black-header.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500' ?>" alt="Article-Headline-Image">
-                        </div>
+                        <?php if (!empty($article['header_img'])): ?>
+                            <div class="my-4 text-center">
+                                <img class="rounded w-100" src="<?= BASE_URL ?>/assets/uploads/<?= $article['header_img'] ?>" alt="Article-Headline-Image">
+                            </div>
+                        <?php endif ?>
                         
                         <div class="">
                             <?= beautifyStyles($article['contents']) ?>
@@ -65,8 +67,8 @@
     </div>
     <div class="col-12 col-xl-4">
         <div class="card my-3 my-lg-5">
-            <div class="card-header p-4">
-                <h5>Editor Tools Kit</h5>
+            <div class="card-header p-3">
+                <h5 class="mb-0">Editor's Tools Kit</h5>
             </div>
             <div class="card-body">
                 <h6 class="my-2">Manipulation</h6>

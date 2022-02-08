@@ -8,7 +8,9 @@ class UserController
 {
     public function index()
     {
-        $users_data = ['users' => App::getData('query_builder')->retrieve('users')];
+        $users_data = ['users' => App::getData('query_builder')->retrieve('users'),
+                       
+        ];
         renderView('users', $users_data);
     }
 

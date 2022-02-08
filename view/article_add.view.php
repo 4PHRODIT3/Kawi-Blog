@@ -32,6 +32,10 @@
                                 <input  type="text" class="form-control" id="article_description" required  name="article_description">
                             </div>
                             <div class="form-group">
+                                <label for="content_img">Content Cover</label>
+                                <input type="file" name="content_img" id="content_img" accept="image/*" class="form-control h-100">
+                            </div>
+                            <div class="form-group">
                                 <label for="article_contents" >Content Body</label>
                                 <textarea  type="text" class="form-control" id="article_contents" required cols="30" rows="10" name="article_contents" ></textarea>
                                     

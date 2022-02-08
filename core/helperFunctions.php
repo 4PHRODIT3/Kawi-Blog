@@ -103,10 +103,10 @@ function beautifyStyles($string)
     return html_entity_decode($string);
 }
 
-function compressText($string)
+function compressText($string, $str_len = 120)
 {
-    if (strlen($string) > 120) {
-        return substr($string, 0, 120).'....';
+    if (strlen($string) > $str_len) {
+        return mb_substr($string, 0, $str_len, 'utf-8').'....';
     } else {
         return $string;
     }
@@ -135,4 +135,22 @@ function filterFromDBData($data_array, $key)
         return $d['id'] == $key;
     });
     return $result_data[array_keys($result_data)[0]];
+}
+
+function insertImageToDB($file)
+{
+    $file = $file['content_img'];
+    $allow_extensions = ['jpg','png','jpeg','webp'];
+    if (!empty($file)) {
+        $file_type = explode('/', $file['type']);
+        if ($file_type[0] == 'image' && in_array($file_type[1], $allow_extensions) && $file['error'] == 0) {
+            $file_name = uniqid().'-'.$file['name'];
+            move_uploaded_file($file['tmp_name'], './assets/uploads/'.$file_name);
+            return $file_name;
+        } else {
+            redirect('/article', '?error=Only PNG, JPG, JPEG And WEBP Formats are allowed!');
+        }
+    } else {
+        return null;
+    }
 }

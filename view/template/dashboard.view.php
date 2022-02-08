@@ -132,7 +132,7 @@
                     </button>
                     <div class="dropdown-menu">
                         
-                        <a class="dropdown-item py-2 px-3" href="/user/profile?id=<?= $user['id'] ?>">Profile</a>
+                        <a class="dropdown-item py-2 px-3" href="/user/profile?id=<?= $auth['id'] ?>">Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item py-2 px-3" href="/user/logout" onclick="return confirm('Are you sure want to logout?')">Logout</a>
                     

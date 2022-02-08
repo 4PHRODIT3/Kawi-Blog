@@ -11,15 +11,17 @@ class ArticleController
     {
         $auth = Authorization::checkAuthor();
         $article_data = $_POST;
-        
+        $img = $_FILES;
         if (checkCSRF($article_data['csrf_token'])) {
             if (validateForm($article_data)) {
+                $img_name = insertImageToDB($img);
                 App::getData('query_builder')->create('articles', [
                     'title' => cleanString($article_data['article_title']),
                     'description' => cleanString($article_data['article_description']),
                     'contents' => cleanString($article_data['article_contents']),
                     'category_id' => $article_data['category_id'],
-                    'user_id' => $auth['id']
+                    'user_id' => $auth['id'],
+                    'header_img' => !empty($img_name) ? $img_name : null,
                 ]);
                 redirect('/article/manipulate', '?success=Action Confirmed! Hope You Get More Viewers.');
             } else {
@@ -42,6 +44,7 @@ class ArticleController
     {
         $article_id = $_GET['id'];
         $auth = Authorization::checkAuthor();
+        
         if (isset($article_id) && isset($auth)) {
             $data = ['previous_data' => App::getData('query_builder')->retrieve('articles', ['id' => $article_id])[0],
                      'categories' => App::getData('query_builder')->retrieve('categories'),
@@ -56,15 +59,17 @@ class ArticleController
     {
         $auth = Authorization::checkAuthor();
         $article_data = $_POST;
-        
+        $img = $_FILES;
         if (checkCSRF($article_data['csrf_token'])) {
             if (validateForm($article_data)) {
+                $img_name = insertImageToDB($img);
                 App::getData('query_builder')->update('articles', [
                     'title' => cleanString($article_data['article_title']),
                     'description' => cleanString($article_data['article_description']),
                     'contents' => cleanString($article_data['article_contents']),
                     'category_id' => $article_data['category_id'],
-                    'user_id' => $auth['id']
+                    'user_id' => $auth['id'],
+                    'header_img' => !empty($img_name) ? $img_name : null,
                 ], [
                     'id' => $article_data['id']
                 ]);

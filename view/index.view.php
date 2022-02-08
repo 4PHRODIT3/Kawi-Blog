@@ -1,10 +1,80 @@
 <?php
 
+$header_files[] = BASE_URL.'/assets/css/front-panel.css';
+$footer_files[] = BASE_URL.'/assets/js/front-panel.js';
+$meta_data['document_title'] = 'Kawi: Burmese Blog';
+
 require "./view/template/header.view.php";
+require "./view/template/front-panel.view.php";
+
+$lastest_articles = [array_shift($articles),array_shift($articles)];
 
 ?>
 
-<h3>This is Home Page!</h3>
+<div class="row ">
+    <div class="col-12">
+        <div class="row">
+            <?php foreach ($lastest_articles as $lastest_article): ?>
+                <div class="col-12 col-xl-6 p-0 lastest">
+                    <img src="<?= BASE_URL  ?>/assets/uploads/<?= $lastest_article['header_img'] ?>" alt="Header Image" class="w-100 h-100">
+                    <div class="text-over-img">
+                        <h3 class=""><?= $lastest_article['title'] ?></h3>
+                        <div class="d-flex my-3">
+                            <span class="text-danger mr-2"><?= filterFromDBData($categories, $lastest_article['category_id'])['title'] ?></span> | 
+                            <span class="text-light ml-2">5 mins Read</span>
+                        </div>
+                        <p class="text-light"><?= compressText($lastest_article['description'], 200) ?></p>
+                        <a href="<?= BASE_URL ?>/blog?id=<?= $lastest_article['id'] ?>" class="btn custom-btn-red text-light">Read More</a>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
+        <div class="row min-vh-100">
+            
+            <div class="col-12 col-xl-9 px-3 px-md-5 py-4">
+                <h5 class="mb-4">Recent Articles</h5>
+                <div class="row">
+                    <?php foreach ($articles as $article): ?>
+                        <div class="col-12 col-lg-6 col-xl-4 mb-3" >
+                            <div class="article-cards" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" onclick="showDetailArticle(this)">
+                                <img src="<?= BASE_URL ?>/assets/uploads/<?= $article['header_img'] ?>" alt="Header Image" class="w-100 h-100 rounded">
+                                <div class="py-2 px-3">
+                                    <h6 class="my-3"><b><?= $article['title'] ?></b></h6>
+                                    <div class="d-flex my-2">
+                                        <span class="text-danger mr-2"><?= filterFromDBData($categories, $article['category_id'])['title'] ?></span> | 
+                                        <span class="text-dark ml-2">5 mins Read</span>
+                                    </div>
+                                    <p class="text-black-50"><?= compressText($article['description'], 250) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="col-12 col-xl-3 px-3 px-md-5 py-4">
+            <h5 class="mb-4">Popular Articles</h5>
+                <div class="row">
+                    <?php foreach ($lastest_articles as $article): ?>
+                        <div class="col-12 col-lg-6 col-xl-12 mb-3" >
+                            <div class="article-cards" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" onclick="showDetailArticle(this)">
+                                <img src="<?= BASE_URL ?>/assets/uploads/<?= $article['header_img'] ?>" alt="Header Image" class="w-100 h-100 rounded">
+                                <div class="py-2 px-3">
+                                    <h6 class="my-3"><b><?= $article['title'] ?></b></h6>
+                                    <div class="d-flex my-2">
+                                        <span class="text-danger mr-2"><?= filterFromDBData($categories, $article['category_id'])['title'] ?></span> | 
+                                        <span class="text-dark ml-2">5 mins Read</span>
+                                    </div>
+                                    <p class="text-black-50"><?= compressText($article['description'], 250) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <?php
