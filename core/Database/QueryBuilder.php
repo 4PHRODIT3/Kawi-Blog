@@ -22,14 +22,14 @@ class QueryBuilder
         $statement->execute(array_values($data));
     }
 
-    public function retrieve($table, $filter_data = [])
+    public function retrieve($table, $filter_data = [], $condition="")
     {
         $filter_query = "";
         if (!empty($filter_data)) {
             $key= array_keys($filter_data)[0];
             $filter_query = "WHERE $key=?";
         }
-        $query = "SELECT * FROM $table $filter_query";
+        $query = "SELECT * FROM $table $filter_query".$condition;
         $statement = $this->pdo->prepare($query);
         $statement->execute(array_values($filter_data));
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -69,5 +69,12 @@ class QueryBuilder
         $statment = $this->pdo->prepare($query);
         $statment->execute();
         return $statment->fetchAll(PDO::FETCH_ASSOC)[0]['last_id'];
+    }
+
+    public function customQuery($query, $filter_data=[])
+    {
+        $statement = $this->pdo->prepare($query);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }

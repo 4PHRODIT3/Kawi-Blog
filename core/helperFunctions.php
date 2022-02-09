@@ -2,6 +2,8 @@
 
 use Helpers\Sessions;
 
+use function PHPSTORM_META\map;
+
 function dd($data)
 {
     echo "<pre>";
@@ -153,4 +155,14 @@ function insertImageToDB($file)
     } else {
         return null;
     }
+}
+
+function trimArrayValueWithKey($array, $key)
+{
+    $result_arr = [];
+    array_map(function ($d) use (&$result_arr, $key) {
+        array_push($result_arr, $d[$key]);
+    }, $array);
+
+    return $result_arr;
 }

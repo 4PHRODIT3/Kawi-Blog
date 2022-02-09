@@ -101,11 +101,33 @@ class ArticleController
 
         if (isset($article_id)) {
             $article = App::getData('query_builder')->retrieve('articles', ['id' => $article_id])[0];
-            $data = ['article' => $article,
-                     'author' => App::getData('query_builder')->retrieve('users', ['id' => $article['user_id']])[0],
-                     'category' => App::getData('query_builder')->retrieve('categories', ['id' => $article['category_id']])[0],
-                    ];
+            $data = [
+                'article' => $article,
+                'author' => App::getData('query_builder')->retrieve('users', ['id' => $article['user_id']])[0],
+                'category' => App::getData('query_builder')->retrieve('categories', ['id' => $article['category_id']])[0],
+                'viewers' => App::getData('query_builder')->retrieve('viewers', ['article_id' => $article_id ])
+            ];
             renderView('preview_article', $data);
+        } else {
+            renderView('404');
+        }
+    }
+
+    public function pinArticle()
+    {
+        $article_id = $_GET['id'];
+        
+        $auth = Authorization::checkAuthor();
+
+        if (isset($article_id)) {
+            $pin = 1;
+            
+            if ($_GET['action']=='false') {
+                $pin = 0;
+            }
+            
+            App::getData('query_builder')->update('articles', ['pinned' => $pin], ['id' => $article_id]);
+            redirect("/articles?id=$article_id", '&success=Action Successful!');
         } else {
             renderView('404');
         }

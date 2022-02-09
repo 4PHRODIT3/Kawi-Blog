@@ -66,38 +66,82 @@
         </div>
     </div>
     <div class="col-12 col-xl-4">
-        <div class="card my-3 my-lg-5">
-            <div class="card-header p-3">
-                <h5 class="mb-0">Editor's Tools Kit</h5>
-            </div>
-            <div class="card-body">
-                <h6 class="my-2">Manipulation</h6>
-                <div class="btn-group my-3" role="group" aria-label="Basic example">
-                    <?php if ($article['is_published'] !=0): ?>
-                        <a type="button" class="btn btn-secondary">Unpublish</a>
-                    <?php else: ?>
-                        <a type="button" class="btn btn-success">Publish</a>
-                    <?php endif ?>
-                    <a href="/article/manipulate/edit?id=<?= $article['id'] ?>" type="button" class="btn btn-warning">Edit</a>
-                    
-                    <?php if ($auth['role_id'] > 1): ?>
-                        <a href="/article/manipulate/delete?id=<?= $article['id']?>&csrf_token=<?= $csrf_token ?>" onclick="return confirm('Are you sure want to delete this article?')" type="button" class="btn btn-danger">Delete</a>
-                    <?php endif ?>
+        <div class="col-12">
+            <div class="card my-3 my-lg-5">
+                <div class="card-header p-3">
+                    <h5 class="mb-0">Editor's Tools Kit</h5>
                     
                 </div>
-                <h6 class="my-2">Create Contents</h6>
-                <div class="btn-group my-3" role="group" aria-label="Basic example">
-                    
-                    <a type="button" href="/article" class="btn btn-success">New Article</a>
-                    <a type="button" href="/category" class="btn btn-primary">New Category</a>
-                    
-                </div>
-                <h6 class="my-2">Sorting Order</h6>
-                <div class="btn-group my-3" role="group" aria-label="Basic example">
-                    
-                    <a type="button" href="/article" class="btn btn-outline-primary">Pin Post</a>
+                <div class="card-body">
+                    <h6 class="my-2 mb-3">Manipulation</h6>
+                    <?php printAlert();?>
+                    <div class="btn-group my-3" role="group" aria-label="Basic example">
+                        <?php if ($article['is_published'] !=0): ?>
+                            <a type="button" class="btn btn-secondary">Unpublish</a>
+                        <?php else: ?>
+                            <a type="button" class="btn btn-success">Publish</a>
+                        <?php endif ?>
+                        <a href="/article/manipulate/edit?id=<?= $article['id'] ?>" type="button" class="btn btn-warning">Edit</a>
+                        
+                        <?php if ($auth['role_id'] > 1): ?>
+                            <a href="/article/manipulate/delete?id=<?= $article['id']?>&csrf_token=<?= $csrf_token ?>" onclick="return confirm('Are you sure want to delete this article?')" type="button" class="btn btn-danger">Delete</a>
+                        <?php endif ?>
+                        
+                    </div>
+                    <h6 class="my-2">Create Contents</h6>
+                    <div class="btn-group my-3" role="group" aria-label="Basic example">
+                        
+                        <a type="button" href="/article" class="btn btn-success">New Article</a>
+                        <a type="button" href="/category" class="btn btn-primary">New Category</a>
+                        
+                    </div>
+                    <h6 class="my-2">Sorting Order</h6>
+                    <div class="btn-group my-3" role="group" aria-label="Basic example">
+                        
+                        <?php if ($article['pinned'] ==0): ?>
+                            <a type="button" href="/articles/pin?id=<?= $article['id'] ?>&action=true" class="btn btn-outline-primary">Pin Post</a>
+                        <?php else: ?>
+                            <a type="button" href="/articles/pin?id=<?= $article['id'] ?>&action=false" class="btn btn-outline-primary">Unpinned Post</a>
+                        <?php endif ?>
 
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center p-4">
+                    <h6 class="mb-0">Viewers ( <?= count($viewers) ?> )</h6>
+                    <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
+                </div>
+                    <div class="card-body">
+                        
+                        <?php if (empty($viewers)): ?>
+                            <div class='alert alert-warning' role='alert'>No Viewer Yet</div>
+                        <?php else: ?>
+                            <table class="table table-striped table-responsive-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Device Type</th>
+                                        <th scope="col">Viewed At</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <?php foreach ($viewers as $viewer): ?>
+                                        <tr>
+                                            <th scope="row"><?= $viewer['id'] ?></th>
+                                            <td><?= $viewer['name'] ?></td>
+                                            <td><?= $viewer['device'] ?></td>
+                                            <td><?= $viewer['viewed_at'] ?></td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        <?php endif ?>
+                    </div>
             </div>
         </div>
     </div>

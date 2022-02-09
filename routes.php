@@ -26,6 +26,7 @@ $router->get("user/manipulate/ban", [UserController::class,'banUser']);
 $router->post("category", [CategoryController::class,'createCategory']);
 $router->post("category/manipulate/edit", [CategoryController::class,'editCategory']);
 
+
 /*
     * Routes for only Super User (Admin) and Authors
 */
@@ -34,6 +35,7 @@ $router->get("article/manipulate", [ArticleController::class,'mainpulateArticle'
 $router->get("article/manipulate/edit", [ArticleController::class,'editArticle']);
 $router->get("article/manipulate/delete", [ArticleController::class,'deleteArticle']);
 $router->get("articles", [ArticleController::class,'previewArticle']);
+$router->get("articles/pin", [ArticleController::class,'pinArticle']);
 
 $router->post("article", [ArticleController::class,'createArticle']);
 $router->post("article/manipulate/edit", [ArticleController::class,'updateArticle']);
