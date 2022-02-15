@@ -15,5 +15,6 @@ $meta_data = [
 $header_files = [];
 $footer_files = [];
 
-App::bind('config', require './config.php');
+App::bind('config', require './db_config.php');
 App::bind('query_builder', new QueryBuilder(Connection::make(App::getData('config'))));
+App::bind('mail_server_credentials', ['username' => 'kawii.official69@gmail.com','password' => 'testing69']);

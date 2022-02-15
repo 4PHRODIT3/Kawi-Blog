@@ -4,7 +4,7 @@ class HomeController
 {
     public function index()
     {
-        $query = "SELECT article_id, COUNT(*) AS total_viewers FROM viewers GROUP BY article_id ORDER BY total_viewers DESC LIMIT 0,5";
+        $query = "SELECT article_id, COUNT(*) AS total_viewers FROM viewers GROUP BY article_id ORDER BY total_viewers DESC LIMIT 0,3";
         $popular_articles_id = App::getData('query_builder')->customQuery($query);
 
         $data = [

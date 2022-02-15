@@ -33,7 +33,7 @@ $popular_articles = [];
         <div class="row min-vh-100">
             
             <div class="col-12 col-xl-9 px-3 px-md-5 py-4">
-                <h5 class="mb-4">Recent Articles</h5>
+                <h3 class="mb-4">Recent Articles</h3>
                 <div class="row">
                     <?php foreach ($articles as $article): ?>
                         <?php if (!in_array($article['id'], $popular_articles_id)): ?>
@@ -57,7 +57,7 @@ $popular_articles = [];
                 </div>
             </div>
             <div class="col-12 col-xl-3 px-3 px-md-5 py-4">
-            <h5 class="mb-4">Popular Articles</h5>
+            <h3 class="mb-4">Popular Articles</h3>
                 <div class="row">
                     <?php foreach ($popular_articles as $popular_article): ?>
                             <div class="col-12 col-lg-6 col-xl-12 mb-3" >

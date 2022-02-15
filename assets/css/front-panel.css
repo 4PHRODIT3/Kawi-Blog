@@ -92,7 +92,7 @@
 .text-over-img {
   z-index: 3;
   position: absolute;
-  top: 25%;
+  bottom: 20%;
   left: 0;
   padding: 0px 90px;
   margin: auto;

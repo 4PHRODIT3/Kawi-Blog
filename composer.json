@@ -6,7 +6,9 @@
             "email": "b8_htetmyatlinn@uit.edu.mm"
         }
     ],
-    "require": {},
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    },
     "autoload": {
         "classmap": [
             "./"
