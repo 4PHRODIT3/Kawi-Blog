@@ -13,13 +13,16 @@ class Mail
         $mail->isSMTP();
         $mail->SMTPSecure = "tls";
         $mail->Host = "smtp.gmail.com";
-        $mail->Username = App::getData('mail_server_credentials')['username'];
-        $mail->Password = App::getData('mail_server_credentials')['password'];
+
+        $credentials = App::getData('mail_server_credentials');
+
+        $mail->Username = $credentials['username'];
+        $mail->Password = $credentials['password'];
 
         $mail->SMTPAuth = true;
         $mail->Port = 587;
 
-        $mail->From = "kawii.official69@gmail.com";
+        $mail->From = $credentials['username'];
         $mail->FromName = "Kawi Blog";
 
         $mail->isHTML();

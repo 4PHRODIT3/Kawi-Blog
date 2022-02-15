@@ -41,10 +41,9 @@
                     <a href="<?= BASE_URL ?>/user" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Manage Users</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="item_list.html" class="nav-item-link">
+                    <a href="/user/preusers" class="nav-item-link">
                         <div class="d-flex justify-content-between align-items-center">
                             <span><i class="feather feather-list"></i> Pre Users</span>
-                            <div class="badge badge-pill bg-white text-primary shadow-sm">15</div>
 
                         </div>
                     </a>

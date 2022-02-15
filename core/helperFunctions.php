@@ -39,6 +39,7 @@ function redirect($path, $message='')
 {
     $url = BASE_URL.$path;
     header("Location: $url".$message);
+    exit();
 }
 
 function includeFiles($files, $file_type)
@@ -129,6 +130,12 @@ function checkCSRF($token)
     } else {
         return false;
     }
+}
+
+function randomKeyGen()
+{
+    $key = bin2hex(random_bytes(32)).md5('Kawi');
+    return $key;
 }
 
 function filterFromDBData($data_array, $key)

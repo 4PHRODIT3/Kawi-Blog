@@ -8,6 +8,7 @@ $router->get('blog', [HomeController::class,'detailView']);
 $router->get('user/login', [UserController::class,'login']);
 $router->get('user/register', [UserController::class,'register']);
 $router->get("user/logout", [UserController::class,'logoutUser']);
+$router->get('user/verify', [UserController::class,'verifyUser']);
 
 $router->post("user/register", [UserController::class,'createUser']);
 $router->post("user/login", [UserController::class,'loginUser']);
@@ -22,6 +23,8 @@ $router->get("category/manipulate/delete", [CategoryController::class,'deleteCat
 $router->get("user", [UserController::class,'index']);
 $router->get("user/manipulate/role", [UserController::class,'updateRole']);
 $router->get("user/manipulate/ban", [UserController::class,'banUser']);
+$router->get("user/preusers", [UserController::class,'showPreusers']);
+$router->get('user/remove', [UserController::class,'removePreUser']);
 
 $router->post("category", [CategoryController::class,'createCategory']);
 $router->post("category/manipulate/edit", [CategoryController::class,'editCategory']);
