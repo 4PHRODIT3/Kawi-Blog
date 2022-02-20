@@ -62,7 +62,11 @@ class ArticleController
         $img = $_FILES;
         if (checkCSRF($article_data['csrf_token'])) {
             if (validateForm($article_data)) {
-                $img_name = insertImageToDB($img);
+                if ($_FILES['content_img']['name'] != "") {
+                    $img_name = insertImageToDB($img);
+                } else {
+                    $img_name = "";
+                }
                 App::getData('query_builder')->update('articles', [
                     'title' => cleanString($article_data['article_title']),
                     'description' => cleanString($article_data['article_description']),
@@ -73,7 +77,7 @@ class ArticleController
                 ], [
                     'id' => $article_data['id']
                 ]);
-                redirect('/article/manipulate', '?success=Edit Successfully!');
+                redirect('/articles?id='.$article_data['id'], '?success=Edit Successfully!');
             } else {
                 redirect('/article', '?error=Please Fill Required Fields');
             }

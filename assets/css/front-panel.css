@@ -100,7 +100,12 @@
 }
 
 .text-over-img p {
-  line-height: 2em;
+  line-height: 1.75em;
+  font-size: 0.9em;
+}
+.text-over-img h3,
+.article-cards h6 {
+  line-height: 1.75em;
 }
 .text-over-img h3 {
   color: #ffff99;
@@ -156,6 +161,16 @@ span {
   border-radius: 1px;
   background-color: rgba(211, 211, 211, 0.5);
 }
+
+.article-cards p {
+  font-size: 0.9em;
+  line-height: 1.75em;
+}
+
+.less-attention-text {
+  font-size: 0.9em;
+}
+
 @media only screen and (max-width: 1200px) {
   .custom-nav {
     display: flex !important;
@@ -197,7 +212,10 @@ span {
   }
   .text-over-img {
     padding: 0 1.5rem;
-    top: 20%;
+    bottom: 8%;
+  }
+  .less-attention-text {
+    font-size: 0.8em;
   }
 }
 

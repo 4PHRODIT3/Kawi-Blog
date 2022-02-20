@@ -91,13 +91,27 @@
             <button class="btn btn-light show-left-side-bar d-lg-none">
             <img src="<?= BASE_URL ?>/assets/icons/icons8-menu.svg"  alt="Menu Icon" class="icon">
             </button>
-            <div class="form-inline d-none d-md-block">
-                <input type="text" class="form-control ml-3 search-bar"  placeholder="Search Anything..." />
-                <button class="btn button-effect-remove eclipse-rounded p-1">
+            <form class="form-inline d-none d-md-block" action="/articles/search" id="search-form">
+                <button type="button" class="btn btn-outline-danger d-flex justify-content-center align-items-center d-none d-md-none" id="close-search-btn" onclick="closeSearchbar()">
+                    Cancel Search
+                </button>
+                <input type="text" class="form-control ml-3 search-bar" name="q" placeholder="Search Anything..." />
+                <button class="btn button-effect-remove eclipse-rounded p-1" type="submit">
                     <img src="<?= BASE_URL ?>/assets/icons/icons8-search.svg" style="width: 32px;height:32px;" alt="Search Icon" class="icon">
                 </button>
-            </div>
+            </form>
             <div class="d-flex align-items-center">
+                <button
+                        class="btn btn-light btn-sm mr-2 p-2 d-block d-md-none"
+                        type="button" onclick="toggleSearchbar()"
+                        style="border-radius: 50%"
+                    >
+                        <img
+                        src="<?= BASE_URL ?>/assets/icons/icons8-search.svg"
+                        alt="Search Icon"
+                        class="icon"
+                        />
+                </button>
                 <button
                     class="btn btn-light btn-sm mr-2 p-2"
                     type="button"
@@ -140,4 +154,5 @@
             </div>
         </div>
     </div>
+    
     

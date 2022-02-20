@@ -16,6 +16,13 @@ $("#toggle-size").click(function () {
   }
 });
 
+const toggleSearchbar = () => {
+  $("#search-form").toggleClass("reveal-search-form");
+};
+
+const closeSearchbar = () => {
+  $("#search-form").removeClass("reveal-search-form");
+};
 // var client_screen_size = window.screen.height;
 // var active_position = $(".active").offset().top;
 // if (active_position > client_screen_size) {

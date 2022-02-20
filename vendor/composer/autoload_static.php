@@ -31,6 +31,7 @@ class ComposerStaticInit729f42a106d64e95b6d5a5b67b0eb8e7
         'Composer\\Autoload\\ComposerStaticInit729f42a106d64e95b6d5a5b67b0eb8e7' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Connection' => __DIR__ . '/../..' . '/core/Database/Connection.php',
+        'DashboardController' => __DIR__ . '/../..' . '/core/Controllers/DashboardController.php',
         'HomeController' => __DIR__ . '/../..' . '/core/Controllers/HomeController.php',
         'Mail' => __DIR__ . '/../..' . '/core/Helpers/Mail.php',
         'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',

@@ -25,7 +25,7 @@ require "./view/template/front-panel.view.php";
                                 <h1 class="mb-0 detail-article-title"><?= $article['title'] ?></h1>
                             </div>
                             <div class="my-1 my-lg-4">
-                                <p class="text-black-50 pl-1"><?= beautifyStyles($article['description']) ?></p>
+                                <p class="text-black-50 less-attention-text pl-1"><?= beautifyStyles($article['description']) ?></p>
                             </div>
                             <hr class="custom-line-spacing">    
                             <div class="d-flex">
@@ -54,7 +54,7 @@ require "./view/template/front-panel.view.php";
             
                                 <a href="" class="d-flex align-items-center "><img src="<?= BASE_URL ?>/assets/icons/icons8-tag-24.png" alt="Category Icon" class="icon mr-2"> <span><?= $category['title'] ?></span></a>
                             
-                                <a href="" class="d-flex align-items-center"><span>Share</span> <img src="<?= BASE_URL ?>/assets/icons/icons8-share-24.png" alt="Share Icon" class="icon ml-0 ml-xl-2"> </a>
+                                <a href="" class="d-flex align-items-center"><span>Share</span> <img src="<?= BASE_URL ?>/assets/icons/icons8-share-24.png" alt="Share Icon" class="icon ml-2 mb-2 ml-xl-2"> </a>
                                 
                             </div>
                             <hr class="custom-line-spacing my-4">

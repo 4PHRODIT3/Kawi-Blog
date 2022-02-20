@@ -56,7 +56,7 @@
      
                             <a href="" class="d-flex align-items-center "><img src="<?= BASE_URL ?>/assets/icons/icons8-tag-24.png" alt="Category Icon" class="icon mr-2"> <span><?= $category['title'] ?></span></a>
                         
-                            <a href="" class="d-flex align-items-center"><span>Share on Facebook</span> <img src="<?= BASE_URL ?>/assets/icons/icons8-share-24.png" alt="Share Icon" class="icon ml-0 ml-xl-2"> </a>
+                            <a href="" class="d-flex align-items-center"><span>Share </span> <img src="<?= BASE_URL ?>/assets/icons/icons8-share-24.png" alt="Share Icon" class="icon ml-2 mb-2"> </a>
                             
                         </div>
                         <hr class="custom-line-spacing my-4">

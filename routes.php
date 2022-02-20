@@ -39,6 +39,7 @@ $router->get("article/manipulate/edit", [ArticleController::class,'editArticle']
 $router->get("article/manipulate/delete", [ArticleController::class,'deleteArticle']);
 $router->get("articles", [ArticleController::class,'previewArticle']);
 $router->get("articles/pin", [ArticleController::class,'pinArticle']);
+$router->get("articles/search", [DashboardController::class,'searchArticle']);
 
 $router->post("article", [ArticleController::class,'createArticle']);
 $router->post("article/manipulate/edit", [ArticleController::class,'updateArticle']);

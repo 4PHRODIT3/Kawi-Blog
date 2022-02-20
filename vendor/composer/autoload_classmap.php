@@ -16,6 +16,7 @@ return array(
     'Composer\\Autoload\\ComposerStaticInit729f42a106d64e95b6d5a5b67b0eb8e7' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Connection' => $baseDir . '/core/Database/Connection.php',
+    'DashboardController' => $baseDir . '/core/Controllers/DashboardController.php',
     'HomeController' => $baseDir . '/core/Controllers/HomeController.php',
     'Mail' => $baseDir . '/core/Helpers/Mail.php',
     'PHPMailer\\PHPMailer\\Exception' => $vendorDir . '/phpmailer/phpmailer/src/Exception.php',

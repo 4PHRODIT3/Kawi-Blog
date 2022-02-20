@@ -77,4 +77,12 @@ class QueryBuilder
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function customSearch($query, $filter_data)
+    {
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(array_keys($filter_data)[0], array_values($filter_data)[0]);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
