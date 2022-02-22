@@ -57,7 +57,7 @@ $popular_articles = [];
                 </div>
             </div>
             <div class="col-12 col-xl-3 px-3 px-md-5 py-4">
-            <h3 class="mb-4">Popular Articles</h3>
+                <h3 class="mb-4">Popular Articles</h3>
                 <div class="row">
                     <?php foreach ($popular_articles as $popular_article): ?>
                             <div class="col-12 col-lg-6 col-xl-12 mb-3" >

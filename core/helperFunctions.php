@@ -138,12 +138,28 @@ function randomKeyGen()
     return $key;
 }
 
-function filterFromDBData($data_array, $key)
+function filterFromDBData($data_array, $key, $keyname='id')
 {
-    $result_data = array_filter($data_array, function ($d) use ($key) {
-        return $d['id'] == $key;
+    $result_data = array_filter($data_array, function ($d) use ($key, $keyname) {
+        return $d[$keyname] == $key;
     });
     return $result_data[array_keys($result_data)[0]];
+}
+
+function countFromDateArray($data_array, $key ="id")
+{
+    $result_arr = [];
+    foreach ($data_array as $d) {
+        $date = date("M d", strtotime($d[$key]));
+        $result_arr[$date] = isset($result_arr[$date]) ? ++$result_arr[$date] : 1;
+    }
+    uksort($result_arr, "sortDates");
+    return $result_arr;
+}
+
+function sortDates($d1, $d2)
+{
+    return strtotime($d1) < strtotime($d2) ? -1 : 1;
 }
 
 function insertImageToDB($file)
@@ -172,4 +188,14 @@ function trimArrayValueWithKey($array, $key)
     }, $array);
 
     return $result_arr;
+}
+
+function generateDates($today, $count)
+{
+    $dates = [];
+    for ($i = 0; $i < $count; $i++) {
+        $tdy = date_create($today);
+        $dates[] =date_format(date_sub($tdy, date_interval_create_from_date_string($i." days")), 'Y-m-d');
+    }
+    return $dates;
 }

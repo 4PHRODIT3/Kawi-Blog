@@ -9,6 +9,7 @@ $router->get('user/login', [UserController::class,'login']);
 $router->get('user/register', [UserController::class,'register']);
 $router->get("user/logout", [UserController::class,'logoutUser']);
 $router->get('user/verify', [UserController::class,'verifyUser']);
+$router->get('search', [HomeController::class,'searchArticles']);
 
 $router->post("user/register", [UserController::class,'createUser']);
 $router->post("user/login", [UserController::class,'loginUser']);
@@ -16,7 +17,7 @@ $router->post("user/login", [UserController::class,'loginUser']);
 /*
     * Routes for only Super User (Admin)
 */
-$router->get("user/admin", [UserController::class,'adminPanel']);
+$router->get("user/admin", [DashboardController::class,'adminPanel']);
 $router->get("category", [CategoryController::class,'index']);
 $router->get("category/manipulate", [CategoryController::class,'manipulateCategory']);
 $router->get("category/manipulate/delete", [CategoryController::class,'deleteCategory']);

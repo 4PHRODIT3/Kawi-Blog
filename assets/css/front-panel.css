@@ -11,6 +11,17 @@
   --dark-50: #2a2e2e;
 }
 
+.nav {
+  position: fixed !important;
+  width: 100%;
+}
+
+.nav-header {
+  z-index: 8;
+  position: relative;
+  top: 0;
+}
+
 .nav-header .brand {
   width: 100px;
   height: 35px;
@@ -19,6 +30,21 @@
 .icon {
   width: 23px;
   height: 23px;
+}
+
+.search-modal {
+  background: #000000d8;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  backdrop-filter: blur(10px);
+}
+
+.hide-modal {
+  display: none;
 }
 
 .nav-header {
@@ -92,7 +118,7 @@
 .text-over-img {
   z-index: 3;
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   left: 0;
   padding: 0px 90px;
   margin: auto;
@@ -171,6 +197,69 @@ span {
   font-size: 0.9em;
 }
 
+#home-search-form {
+  top: 40%;
+  left: 0px;
+  right: 0px;
+  position: absolute;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#home-search-form input {
+  width: 95%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid red;
+  border-radius: 0px !important;
+  padding: 25px 15px;
+  min-height: 60px;
+  font-size: 1.5em;
+  color: white;
+}
+
+#home-search-form input:focus {
+  outline-style: none;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid red;
+}
+
+#home-search-btn {
+  margin-left: -45px;
+  margin-bottom: 6px;
+}
+
+#home-serch-form button {
+  transition: 0.5s;
+}
+
+#home-search-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+#home-search-form button:hover {
+  transform: scale(0.95);
+}
+
+#home-search-form button:focus {
+  box-shadow: none;
+}
+
+.background-cover {
+  height: 65vh;
+}
+.background-cover .text {
+  color: #ffff99;
+  position: absolute;
+  top: 45%;
+  padding: 0px 15px;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+
 @media only screen and (max-width: 1200px) {
   .custom-nav {
     display: flex !important;
@@ -217,11 +306,25 @@ span {
   .less-attention-text {
     font-size: 0.8em;
   }
+  #home-search-form {
+    width: 95%;
+  }
+  #home-search-form input {
+    font-size: 1rem;
+    padding: 10px 5px;
+  }
+  #home-search-btn img {
+    width: 22px;
+    height: 22px;
+  }
+  .text h1 {
+    font-size: 20px !important;
+  }
 }
 
-@media screen and (max-width: 1200px) and (min-height: 768px) {
+@media screen and (max-width: 1200px) and (min-width: 600px) and (min-height: 768px) {
   .text-over-img {
-    top: 40%;
+    top: 30%;
     padding: 0px 60px;
   }
 }

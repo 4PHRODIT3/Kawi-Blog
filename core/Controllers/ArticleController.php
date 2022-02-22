@@ -19,7 +19,7 @@ class ArticleController
                     'title' => cleanString($article_data['article_title']),
                     'description' => cleanString($article_data['article_description']),
                     'contents' => cleanString($article_data['article_contents']),
-                    'category_id' => $article_data['category_id'],
+                    'category_id' => is_numeric($article_data['category_id']) ? $article_data['category_id'] : "1" ,
                     'user_id' => $auth['id'],
                     'header_img' => !empty($img_name) ? $img_name : null,
                 ]);

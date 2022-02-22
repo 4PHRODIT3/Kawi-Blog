@@ -387,4 +387,8 @@ section {
     font-size: 25px !important;
     line-height: 2em;
   }
+  .chart-container {
+    position: relative;
+    height: 220px;
+  }
 }

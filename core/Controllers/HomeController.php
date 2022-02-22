@@ -37,4 +37,21 @@ class HomeController
             renderView('404');
         }
     }
+
+    public function searchArticles()
+    {
+        $search_key =cleanString($_GET['q']);
+        if (trim($search_key) != "") {
+            $data = [
+                'search_results' => App::getData("query_builder")->customSearch("SELECT articles.*,categories.title AS category FROM articles LEFT JOIN users ON articles.user_id = users.id  LEFT JOIN categories ON articles.category_id = categories.id WHERE articles.title LIKE :keywords OR description LIKE :keywords OR contents LIKE :keywords OR categories.title LIKE :keywords OR users.name LIKE :keywords;", ['keywords' => '%'.$search_key.'%']),
+                'search_key' => $search_key,
+                'recent_articles' => App::getData('query_builder')->retrieve('articles', [], "ORDER BY pinned DESC, created_at DESC LIMIT 0,6"),
+                'categories' => App::getData('query_builder')->retrieve('categories')
+                
+            ];
+            renderView("frontpanel_search", $data);
+        } else {
+            redirect('/');
+        }
+    }
 }

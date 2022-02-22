@@ -138,11 +138,6 @@ class UserController
         }
     }
 
-    public function adminPanel()
-    {
-        return renderView('panel');
-    }
-
     public function updateRole()
     {
         $data = $_GET;
