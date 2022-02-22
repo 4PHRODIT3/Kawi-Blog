@@ -76,3 +76,24 @@ function hideDropdown(element) {
   let dropdown = element.nextElementSibling;
   dropdown.classList.remove("show-dropdown");
 }
+
+const wrap = (str, limit) => {
+  const words = str.split(" ");
+  let aux = [];
+  let concat = [];
+
+  for (let i = 0; i < words.length; i++) {
+    concat.push(words[i]);
+    let join = concat.join(" ");
+    if (join.length > limit) {
+      aux.push(join);
+      concat = [];
+    }
+  }
+
+  if (concat.length) {
+    aux.push(concat.join(" ").trim());
+  }
+
+  return aux;
+};

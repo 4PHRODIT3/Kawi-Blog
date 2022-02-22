@@ -390,5 +390,13 @@ section {
   .chart-container {
     position: relative;
     height: 220px;
+    margin-top: 2rem !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .chart-container {
+    height: 100%;
   }
 }
