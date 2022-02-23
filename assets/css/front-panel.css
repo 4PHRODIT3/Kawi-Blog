@@ -187,7 +187,16 @@ span {
   border-radius: 1px;
   background-color: rgba(211, 211, 211, 0.5);
 }
-
+.article-cards img {
+  transition: 0.5s;
+  opacity: 0.8;
+  filter: blur(0.5);
+}
+.article-cards:hover img {
+  transform: scale(0.98);
+  opacity: 1;
+  filter: none;
+}
 .article-cards p {
   font-size: 0.9em;
   line-height: 1.75em;
@@ -258,6 +267,12 @@ span {
   text-align: center;
   width: 100%;
   z-index: 3;
+}
+
+#close-search-btn {
+  font-size: 12px;
+  margin-top: 80px;
+  padding: 5px 10px;
 }
 
 @media only screen and (max-width: 1200px) {

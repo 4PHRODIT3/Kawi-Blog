@@ -21,7 +21,7 @@ foreach ($search_results as $key => $value) {
             <div class="col-12 p-0 lastest background-cover">
                 <img src="<?= BASE_URL  ?>/assets/img/anders-jilden-AkUR27wtaxs-unsplash.jpg" alt="Header Image" class="w-100 h-100">
                 <div class="text">
-                    <h1>Search Results For "<?= $search_key ?>"</h1>
+                    <h1>Search Results For "<span class="text-danger"><?= $search_key ?></span>"</h1>
                 </div>
             </div>
         </div>
