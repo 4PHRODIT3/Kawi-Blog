@@ -107,7 +107,7 @@ const engagementChart = new Chart(ctx2, {
     data: {
         labels:<?= json_encode($chart2_titles) ?>,
         datasets: [{
-            label: '# Engagement of Last Uploaded Articles',
+            label: '# Last 3 Articles Viewers',
             data: <?= json_encode($chart2_values) ?>,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

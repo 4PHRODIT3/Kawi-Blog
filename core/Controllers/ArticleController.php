@@ -21,6 +21,7 @@ class ArticleController
                     'contents' => cleanString($article_data['article_contents']),
                     'category_id' => is_numeric($article_data['category_id']) ? $article_data['category_id'] : "1" ,
                     'user_id' => $auth['id'],
+                    'duration' => is_numeric($article_data['duration']) ? (int) $article_data['duration'] : 3,
                     'header_img' => !empty($img_name) ? $img_name : null,
                 ]);
                 redirect('/article/manipulate', '?success=Action Confirmed! Hope You Get More Viewers.');
@@ -62,19 +63,23 @@ class ArticleController
         $img = $_FILES;
         if (checkCSRF($article_data['csrf_token'])) {
             if (validateForm($article_data)) {
-                if ($_FILES['content_img']['name'] != "") {
-                    $img_name = insertImageToDB($img);
-                } else {
-                    $img_name = "";
-                }
-                App::getData('query_builder')->update('articles', [
+                $insert_data = [
                     'title' => cleanString($article_data['article_title']),
                     'description' => cleanString($article_data['article_description']),
                     'contents' => cleanString($article_data['article_contents']),
                     'category_id' => $article_data['category_id'],
                     'user_id' => $auth['id'],
-                    'header_img' => !empty($img_name) ? $img_name : null,
-                ], [
+                    'duration' => is_numeric($article_data['duration']) ? (int) $article_data['duration'] : 3,
+                    
+                ];
+                if ($_FILES['content_img']['name'] != "") {
+                    $img_name = insertImageToDB($img);
+                    if (!empty($img_name)) {
+                        $insert_data['header_img'] = $img_name;
+                    }
+                }
+
+                App::getData('query_builder')->update('articles', $insert_data, [
                     'id' => $article_data['id']
                 ]);
                 redirect('/articles?id='.$article_data['id'], '?success=Edit Successfully!');
@@ -119,18 +124,35 @@ class ArticleController
 
     public function pinArticle()
     {
-        $article_id = $_GET['id'];
+        $article_id = is_numeric($_GET['id']) ? $_GET['id'] : 0;
         
         $auth = Authorization::checkAuthor();
 
         if (isset($article_id)) {
             $pin = 1;
             
-            if ($_GET['action']=='false') {
+            if ($_GET['action'] === 'false') {
                 $pin = 0;
             }
             
             App::getData('query_builder')->update('articles', ['pinned' => $pin], ['id' => $article_id]);
+            redirect("/articles?id=$article_id", '&success=Action Successful!');
+        } else {
+            renderView('404');
+        }
+    }
+
+    public function publishArticle()
+    {
+        $auth = Authorization::checkAuthor();
+        $article_id = is_numeric($_GET['id']) ? $_GET['id'] : 0;
+
+        if ($article_id !== 0 && checkCSRF($_GET['csrf_token'])) {
+            $publish = 1;
+            if ($_GET['action'] === 'false') {
+                $publish = 0;
+            }
+            App::getData('query_builder')->update('articles', ['is_published' => $publish], ['id' => $article_id]);
             redirect("/articles?id=$article_id", '&success=Action Successful!');
         } else {
             renderView('404');

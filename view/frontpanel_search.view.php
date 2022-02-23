@@ -7,6 +7,12 @@ $meta_data['document_title'] = 'Kawi: Burmese Blog';
 require "./view/template/header.view.php";
 require "./view/template/front-panel.view.php";
 
+foreach ($search_results as $key => $value) {
+    if ($value['is_published'] == 0) {
+        unset($search_results[$key]);
+    }
+}
+
 ?>
 
 <div class="row ">

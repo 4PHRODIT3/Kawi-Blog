@@ -77,9 +77,9 @@
                     <?php printAlert();?>
                     <div class="btn-group my-3" role="group" aria-label="Basic example">
                         <?php if ($article['is_published'] !=0): ?>
-                            <a type="button" class="btn btn-secondary">Unpublish</a>
+                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=false&csrf_token=<?= generateCSRFToken() ?>" type="button" class="btn btn-secondary">Unpublish</a>
                         <?php else: ?>
-                            <a type="button" class="btn btn-success">Publish</a>
+                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=true&csrf_token=<?= generateCSRFToken() ?>" type="button" class="btn btn-success">Publish</a>
                         <?php endif ?>
                         <a href="/article/manipulate/edit?id=<?= $article['id'] ?>" type="button" class="btn btn-warning">Edit</a>
                         
@@ -119,7 +119,7 @@
                         <?php if (empty($viewers)): ?>
                             <div class='alert alert-warning' role='alert'>No Viewer Yet</div>
                         <?php else: ?>
-                            <table class="table table-striped table-responsive-sm">
+                            <table class="table table-striped table-responsive">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col">ID</th>
@@ -130,9 +130,9 @@
                                 </thead>
                                 
                                 <tbody>
-                                    <?php foreach ($viewers as $viewer): ?>
+                                    <?php foreach ($viewers as $key => $viewer): ?>
                                         <tr>
-                                            <th scope="row"><?= $viewer['id'] ?></th>
+                                            <th scope="row"><?= $key ?></th>
                                             <td><?= $viewer['name'] ?></td>
                                             <td><?= $viewer['device'] ?></td>
                                             <td><?= $viewer['viewed_at'] ?></td>

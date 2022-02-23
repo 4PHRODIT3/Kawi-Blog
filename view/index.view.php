@@ -22,7 +22,7 @@ $popular_articles = [];
                         <h3 class=""><?= $lastest_article['title'] ?></h3>
                         <div class="d-flex my-3">
                             <span class="text-danger mr-2"><?= filterFromDBData($categories, $lastest_article['category_id'])['title'] ?></span> | 
-                            <span class="text-light ml-2">5 mins Read</span>
+                            <span class="text-light ml-2"><?= $lastest_article['duration'] ?> mins Read</span>
                         </div>
                         <p class="text-light"><?= compressText($lastest_article['description'], 200) ?></p>
                         <a href="<?= BASE_URL ?>/blog?id=<?= $lastest_article['id'] ?>" class="btn custom-btn-red text-light">Read More</a>
@@ -44,7 +44,7 @@ $popular_articles = [];
                                         <h6 class="my-3"><b><?= $article['title'] ?></b></h6>
                                         <div class="d-flex my-2">
                                             <span class="text-danger mr-2"><?= filterFromDBData($categories, $article['category_id'])['title'] ?></span> | 
-                                            <span class="text-dark ml-2">5 mins Read</span>
+                                            <span class="text-dark ml-2"><?= $article['duration'] ?> mins Read</span>
                                         </div>
                                         <p class="text-black-50"><?= compressText($article['description'], 250) ?></p>
                                     </div>
@@ -67,7 +67,7 @@ $popular_articles = [];
                                         <h6 class="my-3"><b><?= $popular_article['title'] ?></b></h6>
                                         <div class="d-flex my-2">
                                             <span class="text-danger mr-2"><?= filterFromDBData($categories, $popular_article['category_id'])['title'] ?></span> | 
-                                            <span class="text-dark ml-2">5 mins Read</span>
+                                            <span class="text-dark ml-2"><?= $popular_article['duration'] ?> mins Read</span>
                                         </div>
                                         <p class="text-black-50"><?= compressText($popular_article['description'], 250) ?></p>
                                     </div>

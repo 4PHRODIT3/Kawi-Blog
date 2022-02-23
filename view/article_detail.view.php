@@ -17,7 +17,7 @@ require "./view/template/front-panel.view.php";
                 <div class="card-body px-0 detail-article-body">
                     <?php if (empty($article)): ?>
                         <div class="alert alert-warning" role="alert">
-                            The Article May Be Permanently Deleted or The Article ID is Wrong!
+                            The Article May Be Unpublished, Deleted or The Article ID is Wrong!
                         </div>
                     <?php else: ?>
                         <div class="w-75 w-sm-100 mx-auto">
