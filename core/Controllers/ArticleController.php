@@ -34,7 +34,7 @@ class ArticleController
     }
     public function mainpulateArticle()
     {
-        $data = ['articles' => App::getData('query_builder')->retrieve('articles'),
+        $data = ['articles' => App::getData('query_builder')->retrieve('articles', [], "ORDER BY created_at DESC"),
                  'categories' => App::getData('query_builder')->retrieve('categories'),
                  'users' =>  App::getData('query_builder')->retrieve('users')
                 ];
@@ -70,7 +70,7 @@ class ArticleController
                     'category_id' => $article_data['category_id'],
                     'user_id' => $auth['id'],
                     'duration' => is_numeric($article_data['duration']) ? (int) $article_data['duration'] : 3,
-                    
+                    'updated_at' => date('Y-m-d H:i:s', time()),
                 ];
                 if ($_FILES['content_img']['name'] != "") {
                     $img_name = insertImageToDB($img);

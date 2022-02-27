@@ -2,6 +2,23 @@
 
 class SubscriberController
 {
+    public function index()
+    {
+        $auth = Authorization::checkSuperUser();
+        $data = [
+            'subscribers' => App::getData("query_builder")->retrieve("subscribers", ['verified' => 1], "ORDER BY joined_at DESC"),
+        ];
+        renderView("subscribers", $data);
+    }
+
+    public function unverified()
+    {
+        $auth = Authorization::checkSuperUser();
+        $data = [
+            'unverified_subscribers' => App::getData("query_builder")->retrieve("subscribers", ['verified' => 0], "ORDER BY joined_at DESC"),
+        ];
+        renderView("unverified_subscribers", $data);
+    }
     public function subscribe()
     {
         $data = $_POST;
@@ -52,7 +69,6 @@ class SubscriberController
             $token_age = $now->diff($generated_at);
             if ($token_age->d == 0 & $token_age->h <= 1 && $token == $ex['token']) {
                 App::getData('query_builder')->update("subscribers", ['verified' => 1], ['email' => $email]);
-                renderView('verified_subscription', ['ex' => $ex]);
             } elseif ((int) $ex['verified'] == 1) {
                 redirect("/", "?success=Already Subscribed! Stay tuned.");
             } else {
@@ -62,5 +78,37 @@ class SubscriberController
             redirect("/", "?error=Invalid Token! Please Subscribe Again.");
         }
         renderView('verified_subscription', ['ex' => $ex]);
+    }
+
+    public function unsubscribe()
+    {
+        $auth = Authorization::checkSuperUser();
+        $email = $_GET['email'];
+        if (checkCSRF($_GET['csrf_token'])) {
+            if (validateEmail($email)) {
+                App::getData("query_builder")->delete("subscribers", ['email' => $email]);
+                redirect("/subscribers", "?success=Unsubscribed Successfully");
+            } else {
+                redirect("/subscribers", "?error=Invalid Email!");
+            }
+        } else {
+            renderView('403');
+        }
+    }
+
+    public function verifyViaAdmin()
+    {
+        $auth = Authorization::checkSuperUser();
+        $email = $_GET['email'];
+        if (checkCSRF($_GET['csrf_token'])) {
+            if (validateEmail($email)) {
+                App::getData("query_builder")->update("subscribers", ["verified" => 1], ["email" => $email]);
+            } else {
+                redirect("/subscribers/unverified", "?error=Invalid Email");
+            }
+        } else {
+            renderView('403');
+        }
+        redirect("/subscribers/unverified", "?success=Verified Successfully");
     }
 }

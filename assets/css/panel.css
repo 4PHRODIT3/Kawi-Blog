@@ -4,6 +4,7 @@
   --muted: #836188;
   --active: #e07f72;
   --scroll-bar-thumb: rgb(192, 192, 192);
+  --dark: #111;
 }
 
 * {
@@ -325,6 +326,22 @@
 }
 section {
   display: block !important;
+}
+
+.counters a {
+  text-decoration: none;
+  color: var(--dark);
+  transition: 0.5s;
+}
+
+.counters a:hover {
+  cursor: pointer;
+  transform: scale(0.97);
+}
+
+.counter-img-container img {
+  min-width: 160px !important;
+  height: 180px !important;
 }
 
 @media screen and (max-width: 990px) {

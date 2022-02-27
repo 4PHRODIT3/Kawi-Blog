@@ -193,17 +193,6 @@ function trimArrayValueWithKey($array, $key)
 
     return $result_arr;
 }
-
-function generateDates($today, $count)
-{
-    $dates = [];
-    for ($i = 0; $i < $count; $i++) {
-        $tdy = date_create($today);
-        $dates[] =date_format(date_sub($tdy, date_interval_create_from_date_string($i." days")), 'Y-m-d');
-    }
-    return $dates;
-}
-
 function validateEmail($email)
 {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {

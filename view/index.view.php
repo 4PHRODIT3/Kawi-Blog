@@ -30,7 +30,7 @@ $popular_articles = [];
                 </div>
             <?php endforeach ?>
         </div>
-        <?php if (isset($_GET['error'])): ?>
+        <?php if (isset($_GET['error']) || isset($_GET['success'])): ?>
             <div class="row">
                 <div class="col-12 px-3 px-md-5 pt-4">
                     <?php printAlert() ?>

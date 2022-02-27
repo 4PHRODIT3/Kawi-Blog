@@ -28,6 +28,11 @@ $router->get("user/manipulate/role", [UserController::class,'updateRole']);
 $router->get("user/manipulate/ban", [UserController::class,'banUser']);
 $router->get("user/preusers", [UserController::class,'showPreusers']);
 $router->get('user/remove', [UserController::class,'removePreUser']);
+$router->get("subscribers", [SubscriberController::class,'index']);
+$router->get("subscribers/unverified", [SubscriberController::class,'unverified']);
+$router->get("subscribers/unsubscribe", [SubscriberController::class,'unsubscribe']);
+$router->get("subscribers/verify", [SubscriberController::class,'verifyViaAdmin']);
+
 
 $router->post("category", [CategoryController::class,'createCategory']);
 $router->post("category/manipulate/edit", [CategoryController::class,'editCategory']);

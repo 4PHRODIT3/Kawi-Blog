@@ -1,6 +1,6 @@
 <?php
 
-    $auth = Authorization::checkSuperUser();
+    
     $header_files[] = BASE_URL.'/assets/css/panel.css';
     $footer_files[] =  BASE_URL."/assets/js/panel.js";
     $meta_data['document_title'] = 'Kawi: Admin Panel';

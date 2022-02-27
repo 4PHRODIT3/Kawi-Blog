@@ -4,12 +4,14 @@ class CategoryController
 {
     public function index()
     {
+        $auth = Authorization::checkSuperUser();
         $data = ['categories' => App::getData('query_builder')->retrieve('categories')];
         renderView('categories', $data);
     }
 
     public function createCategory()
     {
+        $auth = Authorization::checkSuperUser();
         $category_data = $_POST;
         if (!isset($category_data['user_id']) || !isset($category_data['category_name'])) {
             redirect('/category', '?error=Fill out all Informations!');
@@ -22,13 +24,14 @@ class CategoryController
     }
     public function manipulateCategory()
     {
+        $auth = Authorization::checkSuperUser();
         $data = ['categories' => App::getData('query_builder')->retrieve('categories')];
         renderView('manipulate_category', $data);
     }
 
     public function editCategory()
     {
-        $edit_data = $_POST;
+        $auth = Authorization::checkSuperUser();
         if (!isset($_POST['category_id']) || !isset($_POST['category_name'])) {
             redirect('/category/manipulate', '?error=Please fill all the fields!');
         }
@@ -38,6 +41,7 @@ class CategoryController
 
     public function deleteCategory()
     {
+        $auth = Authorization::checkSuperUser();
         $id = $_GET['id'];
         if (!isset($id)) {
             redirect("/404");

@@ -18,8 +18,8 @@
     <div class="row">
         <div class="col-12  ">
             <div class="card my-5">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Articles Manipulation</h4>
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h4>Articles Manipulation ( <?= isset($search_results) ? count($search_results) : count($articles) ?> )</h4>
                     <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
                 </div>
                 <div class="card-body">
@@ -37,7 +37,7 @@
                                     <th scope="col">Preview</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Contents</th>
+                                    
                                     <th scope="col">Category</th>
                                     <th scope="col">Posted By</th>
                                     <th scope="col">Posted At</th>
@@ -55,7 +55,7 @@
                                             <td><a href="/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
                                             <td><?= removeStyles($article['title']) ?></td>
                                             <td><?= compressText(removeStyles($article['description'])) ?></td>
-                                            <td><?= compressText(removeStyles($article['contents'])) ?></td>
+                                            
                                             
                                             <td><?= $article['category'] ?></td>
                                             
@@ -81,7 +81,7 @@
                                             <td><a href="/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
                                             <td><?= removeStyles($article['title']) ?></td>
                                             <td><?= compressText(removeStyles($article['description'])) ?></td>
-                                            <td><?= compressText(removeStyles($article['contents'])) ?></td>
+                                            
                                             <?php $category = filterFromDBData($categories, $article['category_id']); ?>
                                             <td><?= $category['title'] ?></td>
                                             <?php $user = filterFromDBData($users, $article['user_id']); ?>

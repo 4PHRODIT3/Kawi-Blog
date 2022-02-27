@@ -48,19 +48,34 @@
                         </div>
                     </a>
                 </li>
-                    <li class="nav-title">
-                        Categories
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?= BASE_URL ?>/category" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Category List</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/category/manipulate" class="nav-item-link">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span><i class="feather feather-list"></i>Category Manage</span>
-                            </div>
-                        </a>
-                    </li>
+                <li class="nav-title">
+                    Subcribers
+                </li>
+                <li class="nav-item">
+                    <a href="<?= BASE_URL ?>/subscribers" class="nav-item-link"><span><i class="feather feather-plus-circle"></i>Subscribers List</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/subscribers/unverified" class="nav-item-link">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span><i class="feather feather-list"></i> Unverified Subscribers</span>
+
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-title">
+                    Categories
+                </li>
+                <li class="nav-item">
+                    <a href="<?= BASE_URL ?>/category" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Category List</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/category/manipulate" class="nav-item-link">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span><i class="feather feather-list"></i>Category Manage</span>
+                        </div>
+                    </a>
+                </li>
+                
 
             <?php endif ?>
             <li class="nav-title">

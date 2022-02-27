@@ -20,21 +20,86 @@
 
 <div class="row">
         <div class="col-12">
-            <div class="card my-3 min-vh-100 mb-3 shadow-lg pt-4 px-3 p-lg-5 rounded">
+            <div class="my-3 min-vh-100 mb-3  pt-4 px-0 px-lg-5">
                 <div class="row">
-                    <div class="col-12 col-xl-6 col-xl-5 mb-5 mb-xl-0">
-                        <h4>Daily Visitors</h4>
-                        <div class="my-3 my-xl-0 chart-container mb-xl-0" >
-                            <canvas id="10days-visitors-chart" class="w-100 h-100"></canvas>
+                    <div class="col-12 col-xl-6  mb-3 mb-xl-0">
+                        <div class="card p-4 p-xl-5 rounded shadow-lg">
+                            <h4>Daily Visitors</h4>
+                            <div class="my-3 my-xl-0 chart-container mb-xl-0" >
+                                <canvas id="10days-visitors-chart" class="w-100 h-100"></canvas>
+                            </div>
                         </div>
-                        
                     </div>
-                    <div class="col-12 col-xl-6 col-xl-5 my-5 my-xl-0">
-                        <h4>Recent Articles Engagement</h4>
-                        <div class="my-3 my-xl-0 chart-container pb-5 pb-xl-0">
-                            <canvas id="engagement-chart" class="w-100 h-100"></canvas>
+                    <div class="col-12 col-xl-6  mb-3 mb-xl-5">
+                        <div class="card p-4 p-xl-5 rounded shadow-lg">
+
+                            <h4>Recent Articles Engagement</h4>
+                            <div class="my-3 my-xl-0 chart-container  pb-5 pb-xl-0">
+                                <canvas id="engagement-chart" class="w-100 h-100"></canvas>
+                            </div>
                         </div>
-                        
+                    </div>
+                    <div class="col-12 col-xl-8">
+                        <div class="card p-4 p-xl-3 rounded shadow-lg">
+                            <div class="card-body">
+                                <div class="row justify-content-around align-items-center counters">
+                                    <a href="/article/manipulate" class="col-12 col-xl-4 mb-3 mb-xl-0">
+                                        <div class="text-center mt-3 counter-img-container">
+                                            <img src="<?= BASE_URL ?>/assets/img/undraw_blog_post_re_fy5x.svg" class="w-75 h-100" alt="Kawi Content Creator Illustration" />
+
+                                        </div>
+
+                                        <div class="text-center mt-5">
+                                            <h1 class="text-danger"><?= $total_articles['total'] ?></h1>
+                                            <h4 class="my-4">Articles</h4>
+                                            
+                                        </div>
+                                    </a>
+                                    <a href="/user" class="col-12 col-xl-4 mb-3 mb-xl-0">
+                                        <div class="text-center mt-3 counter-img-container">
+                                            <img src="<?= BASE_URL ?>/assets/img/undraw_team_spirit_re_yl1v.svg" class="w-75 h-100" alt="Kawi Content Creator Illustration" />
+
+                                        </div>
+
+                                        <div class="text-center mt-5">
+                                            <h1 class="text-danger"><?= $total_users['total'] ?></h1>
+                                            <h4 class="my-4">Coworkers</h4>
+                                        </div>
+
+                                        
+                                    </a>
+                                    <a href="/subscribers" class="col-12 col-xl-4 mb-3 mb-xl-0">
+                                        <div class="text-center mt-3 counter-img-container">
+                                            <img src="<?= BASE_URL ?>/assets/img/undraw_subscriber_re_om92.svg" class="w-75 h-100" alt="Kawi Content Creator Illustration" />
+
+                                        </div>
+
+                                        <div class="text-center mt-5">
+                                            <h1 class="text-danger"><?= $total_subscribers['total'] ?></h1>
+                                            <h4 class="my-4">Subscribers</h4>
+                                        </div>
+                                        
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4 my-3 my-xl-0">
+                        <div class="card p-3  rounded shadow-lg">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center flex-column">
+                                    <div class="text-center">
+                                        <img src="<?= BASE_URL ?>/assets/img/undraw_typewriter_re_u9i2.svg" class="w-75 h-75" alt="Kawi Content Creator Illustration" />
+
+                                    </div>
+                                    <h6 class="my-4">Create Your Desire Ideas into Impressive Contents Now!</h6>
+                                    <a href="/article" class="btn btn-danger d-flex align-items-center justify-content-center"><img class="icon mr-2 mb-2" src="<?= BASE_URL ?>/assets/icons/icons8-create-50.png" alt="Create Content Icon" /> Create Contents</a>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
