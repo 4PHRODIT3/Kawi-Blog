@@ -67,6 +67,6 @@ require "./view/template/front-panel.view.php";
 </div>
 
 <?php
-
-require "./view/template/footer.view.php"
+require "./view/template/front-panel-footer.view.php";
+require "./view/template/footer.view.php";
 ?>

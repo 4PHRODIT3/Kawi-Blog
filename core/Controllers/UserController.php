@@ -43,6 +43,9 @@ class UserController
         if ($user_data['password'] != $user_data['confirm-password']) {
             redirect('/user/register', '?error=Passwords Must Be The Same');
         }
+        if (validateEmail($user_data['email'])) {
+            redirect('/user/login', "?error=Invalid Email Format!");
+        }
         $key = randomKeyGen();
         $insert_data = [
             'name' => $user_data['username'],

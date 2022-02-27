@@ -86,6 +86,6 @@ foreach ($search_results as $key => $value) {
 
 
 <?php
-
-require "./view/template/footer.view.php"
+require "./view/template/front-panel-footer.view.php";
+require "./view/template/footer.view.php";
 ?>

@@ -26,5 +26,6 @@ return array(
     'PHPMailer\\PHPMailer\\SMTP' => $vendorDir . '/phpmailer/phpmailer/src/SMTP.php',
     'QueryBuilder' => $baseDir . '/core/Database/QueryBuilder.php',
     'Router' => $baseDir . '/core/Router.php',
+    'SubscriberController' => $baseDir . '/core/Controllers/SubscriberController.php',
     'UserController' => $baseDir . '/core/Controllers/UserController.php',
 );

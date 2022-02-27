@@ -60,10 +60,14 @@ function includeFiles($files, $file_type)
 function printAlert()
 {
     if (isset($_GET['error'])) {
-        echo "<div class='alert alert-danger' role='alert'>".$_GET['error']."</div>";
+        echo "<div class='alert  alert-danger alert-dismissible fade show' role='alert'>".$_GET['error']."<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+      </button> </div>";
     }
     if (isset($_GET['success'])) {
-        echo "<div class='alert alert-success' role='alert'>".$_GET['success']."</div>";
+        echo "<div class='alert  alert-success alert-dismissible fade show' role='alert'>".$_GET['success']."<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+      </button></div>";
     }
 }
 
@@ -198,4 +202,12 @@ function generateDates($today, $count)
         $dates[] =date_format(date_sub($tdy, date_interval_create_from_date_string($i." days")), 'Y-m-d');
     }
     return $dates;
+}
+
+function validateEmail($email)
+{
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true;
+    }
+    return false;
 }

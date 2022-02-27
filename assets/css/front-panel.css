@@ -9,6 +9,7 @@
 :root {
   --dark: #181a1c;
   --dark-50: #2a2e2e;
+  --light: #fff;
 }
 
 .nav {
@@ -273,6 +274,15 @@ span {
   font-size: 12px;
   margin-top: 80px;
   padding: 5px 10px;
+}
+
+.newsletter-subscription-container {
+  min-height: 50vh;
+}
+
+.newsletter-subscription {
+  background: #142f48;
+  color: var(--light);
 }
 
 @media only screen and (max-width: 1200px) {

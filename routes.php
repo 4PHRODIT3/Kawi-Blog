@@ -10,9 +10,11 @@ $router->get('user/register', [UserController::class,'register']);
 $router->get("user/logout", [UserController::class,'logoutUser']);
 $router->get('user/verify', [UserController::class,'verifyUser']);
 $router->get('search', [HomeController::class,'searchArticles']);
+$router->get("newsletter/subscribe/verification", [SubscriberController::class,'verifySubscriber']);
 
 $router->post("user/register", [UserController::class,'createUser']);
 $router->post("user/login", [UserController::class,'loginUser']);
+$router->post("newsletter/subscribe", [SubscriberController::class,'subscribe']);
 
 /*
     * Routes for only Super User (Admin)

@@ -41,6 +41,7 @@ class ComposerStaticInit729f42a106d64e95b6d5a5b67b0eb8e7
         'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/Database/QueryBuilder.php',
         'Router' => __DIR__ . '/../..' . '/core/Router.php',
+        'SubscriberController' => __DIR__ . '/../..' . '/core/Controllers/SubscriberController.php',
         'UserController' => __DIR__ . '/../..' . '/core/Controllers/UserController.php',
     );
 

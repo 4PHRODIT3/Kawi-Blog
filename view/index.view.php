@@ -30,6 +30,13 @@ $popular_articles = [];
                 </div>
             <?php endforeach ?>
         </div>
+        <?php if (isset($_GET['error'])): ?>
+            <div class="row">
+                <div class="col-12 px-3 px-md-5 pt-4">
+                    <?php printAlert() ?>
+                </div>
+            </div>
+        <?php endif ?>
         <div class="row min-vh-100">
             
             <div class="col-12 col-xl-9 px-3 px-md-5 py-4">
@@ -56,7 +63,7 @@ $popular_articles = [];
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="col-12 col-xl-3 px-3 px-md-5 py-4">
+            <div class="col-12 col-xl-3 px-3 px-md-5 pl-xl-0 py-4">
                 <h3 class="mb-4">Popular Articles</h3>
                 <div class="row">
                     <?php foreach ($popular_articles as $popular_article): ?>
@@ -84,6 +91,6 @@ $popular_articles = [];
 
 
 <?php
-
+require "./view/template/front-panel-footer.view.php";
 require "./view/template/footer.view.php"
 ?>
