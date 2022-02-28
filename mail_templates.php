@@ -100,8 +100,8 @@ $templates = [
           </p>
           <p style="margin-bottom: 40px">
             If someone using your account to register,
-            <a href="mailto:kawii.official69@gmail.com" style="color: red"
-              >Contact Us</a
+            <a href="mailto:kawii.official69@gmail.com?subject=Unauthorized%20Subscription&body=Hi%20there,%20I%20did%20not%20subscribe%20newsletter%20from%20Kawi%20Blog%20and%20I%20want%20you%20to%20remove%20me%20from%20mailing%20list." style="color: red"
+              >Let us Know</a
             >.
           </p>
           <a

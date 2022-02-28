@@ -12,6 +12,10 @@
   --light: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .nav {
   position: fixed !important;
   width: 100%;
@@ -63,7 +67,8 @@
   font-size: 15px !important;
 }
 
-.nav-btn:hover {
+.nav-btn:hover,
+.provider {
   text-decoration: none;
   transform: scale(0.9);
 }
@@ -285,6 +290,47 @@ span {
   color: var(--light);
 }
 
+.up-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: 4;
+  display: none;
+}
+.link {
+  text-decoration: none;
+  transition: 0.3s;
+}
+.link:hover {
+  text-decoration: none;
+  transform: scale(0.99);
+  color: red !important;
+}
+.footer {
+  background-color: var(--dark);
+  min-height: 50vh;
+  color: var(--light);
+}
+.footer .brand {
+  width: 150px;
+  height: 150px;
+}
+.footer .text {
+  line-height: 2.5em !important;
+  color: var(--light);
+}
+.links-align {
+  padding-left: 8rem;
+  margin-top: 35px;
+}
+.footer-text {
+  font-size: 0.9em;
+  color: red;
+}
+.footer-text a {
+  font-size: 1.1em;
+  color: var(--light);
+}
 @media only screen and (max-width: 1200px) {
   .custom-nav {
     display: flex !important;
@@ -293,6 +339,7 @@ span {
     justify-content: start !important;
     position: fixed;
     width: 100% !important;
+    height: -webkit-fill-available;
     min-height: 100vh;
     top: 0;
     left: -100%;
@@ -344,6 +391,22 @@ span {
   }
   .text h1 {
     font-size: 20px !important;
+  }
+  .provider-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .provider {
+    font-size: 1rem;
+  }
+  .links-align {
+    padding-left: 0rem;
+    margin-top: 20px;
+  }
+  .footer .text,
+  .link {
+    line-height: 1.8em !important;
+    font-size: 0.9em;
   }
 }
 

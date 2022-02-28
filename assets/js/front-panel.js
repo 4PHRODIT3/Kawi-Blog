@@ -1,4 +1,4 @@
-let nav_btn = document.getElementById("nav-toggler");
+var nav_btn = document.getElementById("nav-toggler");
 
 nav_btn.addEventListener("click", function () {
   if ($(".custom-nav").css("left") == "0px") {
@@ -15,12 +15,13 @@ function showDetailArticle(ele) {
   window.location.href = $article_url;
 }
 
-let search_btn = document.getElementById("search-btn");
-let modal = document.querySelector(".search-modal");
-let cancel_btn = document.querySelector("#close-search-btn");
-let client_screen_width = window.screen.width;
+var search_btn = document.getElementById("search-btn");
+var modal = document.querySelector(".search-modal");
+var cancel_btn = document.querySelector("#close-search-btn");
+var client_screen_width = window.screen.width;
 
-search_btn.addEventListener("click", function () {
+search_btn.addEventListener("click", function (e) {
+  e.preventDefault();
   modal.classList.toggle("hide-modal");
   if (client_screen_width <= 1200) {
     $(".custom-nav").animate({ left: "-100%" });
@@ -32,12 +33,19 @@ cancel_btn.addEventListener("click", function () {
   modal.classList.add("hide-modal");
 });
 
-let nav = document.querySelector("nav");
-let client_screen_height = window.screen.height;
+var nav = document.querySelector("nav");
+var helperScroller = document.getElementById("up-arrow");
+var client_screen_height = window.screen.height;
 window.addEventListener("scroll", function () {
   if (document.documentElement.scrollTop > client_screen_height - 200) {
     nav.classList.add("nav");
+    helperScroller.style.display = "block";
   } else {
     nav.classList.remove("nav");
+    helperScroller.style.display = "none";
   }
+});
+
+helperScroller.addEventListener("click", function scrollToTop() {
+  document.documentElement.scrollTop = 0;
 });
