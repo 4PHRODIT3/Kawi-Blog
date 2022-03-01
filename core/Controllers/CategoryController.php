@@ -9,6 +9,26 @@ class CategoryController
         renderView('categories', $data);
     }
 
+    public function frontPanelCategories()
+    {
+        $data = ['categories' => App::getData("query_builder")->retrieve('categories')];
+        renderView('frontpanel_categories', $data);
+    }
+
+    public function filterByCategory()
+    {
+        $id = (int) cleanString($_GET['id']);
+        if (!empty($id)) {
+            $data = [
+                'categories' => App::getData('query_builder')->retrieve('categories'),
+                'articles' => App::getData('query_builder')->retrieve('articles', ['category_id' => is_numeric($id) ? $id : 0], "AND is_published != 0 ORDER BY pinned DESC, created_at")
+            ];
+            renderView('frontpanel_categories', $data);
+        } else {
+            redirect("/categories", "?error=Invalid Category Id");
+        }
+    }
+
     public function createCategory()
     {
         $auth = Authorization::checkSuperUser();

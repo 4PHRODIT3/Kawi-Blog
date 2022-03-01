@@ -11,6 +11,9 @@ $router->get("user/logout", [UserController::class,'logoutUser']);
 $router->get('user/verify', [UserController::class,'verifyUser']);
 $router->get('search', [HomeController::class,'searchArticles']);
 $router->get("newsletter/subscribe/verification", [SubscriberController::class,'verifySubscriber']);
+$router->get("categories", [CategoryController::class,'frontPanelCategories']);
+$router->get("categories/category", [CategoryController::class,'filterByCategory']);
+$router->get("contact", [HomeController::class,'sendMessage']);
 
 $router->post("user/register", [UserController::class,'createUser']);
 $router->post("user/login", [UserController::class,'loginUser']);

@@ -111,4 +111,13 @@ class SubscriberController
         }
         redirect("/subscribers/unverified", "?success=Verified Successfully");
     }
+
+    // public function notifySubscribers($data)
+    // {
+    //     $title = $data['title'];
+    //     $url = BASE_URL."/blog?id=".$data['id'];
+
+    //     require "./mail_templates.php";
+    //     $message = $templates['notify'];
+    // }
 }

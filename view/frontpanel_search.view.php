@@ -38,7 +38,7 @@ foreach ($search_results as $key => $value) {
                                     <div class="py-2 px-3">
                                         <h6 class="my-3"><b><?= $article['title'] ?></b></h6>
                                         <div class="d-flex my-2">
-                                            <span class="text-danger mr-2"><?= $article['category'] ?></span> | 
+                                            <span class="text-danger mr-2"><?= $article['category_id'] ?></span> | 
                                             <span class="text-dark ml-2">5 mins Read</span>
                                         </div>
                                         <p class="text-black-50"><?= compressText($article['description'], 250) ?></p>

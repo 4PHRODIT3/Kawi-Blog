@@ -52,10 +52,8 @@ require "./view/template/front-panel.view.php";
                             <hr class="custom-line-spacing my-4">
                             <div class="d-flex justify-content-between align-items-center" >
             
-                                <a href="" class="d-flex align-items-center "><img src="<?= BASE_URL ?>/assets/icons/icons8-tag-24.png" alt="Category Icon" class="icon mr-2"> <span><?= $category['title'] ?></span></a>
-                            
-                                <a href="" class="d-flex align-items-center"><span>Share</span> <img src="<?= BASE_URL ?>/assets/icons/icons8-share-24.png" alt="Share Icon" class="icon ml-2 mb-2 ml-xl-2"> </a>
-                                
+                                <a href="" class="d-flex align-items-center link" style="font-size:20px;"><span><?= $category['title'] ?></span></a>
+                                <div class="fb-share-button" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                             </div>
                             <hr class="custom-line-spacing my-4">
                         </div>
@@ -70,3 +68,10 @@ require "./view/template/front-panel.view.php";
 require "./view/template/front-panel-footer.view.php";
 require "./view/template/footer.view.php";
 ?>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

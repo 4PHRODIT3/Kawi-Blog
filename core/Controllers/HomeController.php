@@ -55,4 +55,8 @@ class HomeController
             redirect('/');
         }
     }
+    public function sendMessage()
+    {
+        renderView('contact');
+    }
 }

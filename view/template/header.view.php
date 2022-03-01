@@ -17,10 +17,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
     />
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="tDEZdBRW"></script>
     <?php includeFiles($header_files, 'css'); ?>
     
   </head>
   <body>
+    <div id="fb-root"></div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">

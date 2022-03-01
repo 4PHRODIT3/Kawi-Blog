@@ -331,6 +331,12 @@ span {
   font-size: 1.1em;
   color: var(--light);
 }
+.category-card {
+  transition: 0.5s;
+}
+.category-card:hover {
+  transform: translate(-10px, -10px);
+}
 @media only screen and (max-width: 1200px) {
   .custom-nav {
     display: flex !important;
@@ -344,6 +350,9 @@ span {
     top: 0;
     left: -100%;
     z-index: 5;
+  }
+  .background-cover {
+    height: auto !important;
   }
   .nav-btn {
     display: block;
