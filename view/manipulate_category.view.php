@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-body">
                     <?php printAlert() ?>
-                    <form class=" p-0 hidden-form" action="/category/manipulate/edit"  method="POST">
+                    <form class=" p-0 hidden-form" action="<?= BASE_URL ?>/category/manipulate/edit"  method="POST">
                         <input type="hidden" name="category_id" value="">
                        
                         <div class="form-row justify-content-between align-items-center">

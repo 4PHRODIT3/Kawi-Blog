@@ -52,7 +52,7 @@
                                     <?php foreach ($search_results as $key => $article): ?>
                                         <tr>
                                             <th scope="row"><?= $key + 1 ?></th>
-                                            <td><a href="/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
+                                            <td><a href="<?= BASE_URL ?>/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
                                             <td><?= removeStyles($article['title']) ?></td>
                                             <td><?= compressText(removeStyles($article['description'])) ?></td>
                                             
@@ -78,7 +78,7 @@
                                     <?php foreach ($articles as $key => $article): ?>
                                         <tr>
                                             <th scope="row"><?= $key + 1 ?></th>
-                                            <td><a href="/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
+                                            <td><a href="<?= BASE_URL ?>/articles?id=<?= $article['id'] ?>" class="btn btn-transparent"><img class="icon" src="<?= BASE_URL ?>/assets/icons/icons8-surprise-64.png" alt="Preview Icon"></a></td>
                                             <td><?= removeStyles($article['title']) ?></td>
                                             <td><?= compressText(removeStyles($article['description'])) ?></td>
                                             

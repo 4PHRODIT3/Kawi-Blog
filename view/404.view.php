@@ -56,7 +56,7 @@
     <div class="text-center">
         <h4 class="heading">404 Contents Not Found!</h4>
         <p class="explanation">May be <span class="error">Wrong Paths</span> or Contents are <span class="error">Permanently Deleted</span> by Owners.</p>
-        <a href="/" class="link">Go Back</a>
+        <a href="<?= BASE_URL ?>" class="link">Go Back</a>
     </div>
 </div>
 </body>

@@ -7,7 +7,7 @@
             <div class="text-center px-3 px-md-5 py-5 p-xl-0">
                 <h2><span class="text-danger">Subscribe</span> & <span class="text-warning">Get Updated  With Us</span></h2>
                 <p class="my-4">Subscribe to receive occasional update contents. We respect our privacy policy rules and 100% sure not to spam.</p>
-                <form class="mt-5 mx-auto" action="/newsletter/subscribe" method="POST">
+                <form class="mt-5 mx-auto" action="<?= BASE_URL ?>/newsletter/subscribe" method="POST">
                     <div class="form-row ">
                         <div class="col-12 col-lg-5 form-group mb-5">
                             <input type="text" required class="form-control" name="name" placeholder="Name">
@@ -50,9 +50,9 @@
                 <div class="d-flex flex-column h-100 justify-content-center w-100 links-align">
                     <div class="text-left"><h5 class="text-warning mb-4">Quick Links</h5></div>
                     <div class="text-left d-flex flex-column">
-                        <div class="mb-3"><a href="/contact" class="text  link">Home</a></div>
-                        <div class="mb-3"><a href="/contact" class="text  link">Categories</a></div>
-                        <div class="mb-3"><a href="/contact" class="text  link">Contact Us</a></div>
+                        <div class="mb-3"><a href="<?= BASE_URL ?>" class="text  link">Home</a></div>
+                        <div class="mb-3"><a href="<?= BASE_URL ?>/categories" class="text  link">Categories</a></div>
+                        <div class="mb-3"><a href="<?= BASE_URL ?>/contact" class="text  link">Contact Us</a></div>
                     </div>
                 </div>
             </div>

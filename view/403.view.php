@@ -67,7 +67,7 @@
     <div class="text-center">
         <h4 class="heading">403 Unauthorized User!</h4>
         <p class="explanation">You Little Shit is <span class="error">Unauthorize to Enter</span>  This System. Go Back Before We Chase Your Location!</p>
-        <a href="/" class="link">Go Back</a>
+        <a href="<?= BASE_URL ?>" class="link">Go Back</a>
     </div>
 </div>
 </body>

@@ -54,7 +54,7 @@
                         <hr class="custom-line-spacing my-4">
                         <div class="d-flex justify-content-between align-items-center" >
             
-                                <a href="/categories/category?id=<?= $article['category_id'] ?>" class="d-flex align-items-center link" style="font-size:16px;"><span><?= $category['title'] ?></span></a>
+                                <a href="<?= BASE_URL ?>/categories/category?id=<?= $article['category_id'] ?>" class="d-flex align-items-center link" style="font-size:16px;"><span><?= $category['title'] ?></span></a>
                                 <div class="fb-share-button" style="line-height: 0 !important;" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                         </div>
                         <hr class="custom-line-spacing my-4">
@@ -75,31 +75,31 @@
                     <?php printAlert();?>
                     <div class="btn-group my-3" role="group" aria-label="Basic example">
                         <?php if ($article['is_published'] !=0): ?>
-                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=false&csrf_token=<?= $csrf_token ?>" type="button" class="btn btn-secondary">Unpublish</a>
+                            <a href="<?= BASE_URL ?>/articles/publish?id=<?= $article['id'] ?>&action=false&csrf_token=<?= $csrf_token ?>" type="button" class="btn btn-secondary">Unpublish</a>
                         <?php else: ?>
-                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=true&csrf_token=<?= $csrf_token ?>" type="button" class="btn btn-success">Publish</a>
+                            <a href="<?= BASE_URL ?>/articles/publish?id=<?= $article['id'] ?>&action=true&csrf_token=<?= $csrf_token ?>" type="button" class="btn btn-success">Publish</a>
                         <?php endif ?>
-                        <a href="/article/manipulate/edit?id=<?= $article['id'] ?>" type="button" class="btn btn-warning">Edit</a>
+                        <a href="<?= BASE_URL ?>/article/manipulate/edit?id=<?= $article['id'] ?>" type="button" class="btn btn-warning">Edit</a>
                         
                         <?php if ($auth['role_id'] > 1): ?>
-                            <a href="/article/manipulate/delete?id=<?= $article['id']?>&csrf_token=<?= $csrf_token ?>" onclick="return confirm('Are you sure want to delete this article?')" type="button" class="btn btn-danger">Delete</a>
+                            <a href="<?= BASE_URL ?>/article/manipulate/delete?id=<?= $article['id']?>&csrf_token=<?= $csrf_token ?>" onclick="return confirm('Are you sure want to delete this article?')" type="button" class="btn btn-danger">Delete</a>
                         <?php endif ?>
                         
                     </div>
                     <h6 class="my-2">Create Contents</h6>
                     <div class="btn-group my-3" role="group" aria-label="Basic example">
                         
-                        <a type="button" href="/article" class="btn btn-success">New Article</a>
-                        <a type="button" href="/category" class="btn btn-primary">New Category</a>
+                        <a type="button" href="<?= BASE_URL ?>/article" class="btn btn-success">New Article</a>
+                        <a type="button" href="<?= BASE_URL ?>/category" class="btn btn-primary">New Category</a>
                         
                     </div>
                     <h6 class="my-2">Sorting Order</h6>
                     <div class="btn-group my-3" role="group" aria-label="Basic example">
                         
                         <?php if ($article['pinned'] ==0): ?>
-                            <a type="button" href="/articles/pin?id=<?= $article['id'] ?>&action=true" class="btn btn-outline-primary">Pin Post</a>
+                            <a type="button" href="<?= BASE_URL ?>/articles/pin?id=<?= $article['id'] ?>&action=true" class="btn btn-outline-primary">Pin Post</a>
                         <?php else: ?>
-                            <a type="button" href="/articles/pin?id=<?= $article['id'] ?>&action=false" class="btn btn-outline-primary">Unpinned Post</a>
+                            <a type="button" href="<?= BASE_URL ?>/articles/pin?id=<?= $article['id'] ?>&action=false" class="btn btn-outline-primary">Unpinned Post</a>
                         <?php endif ?>
 
                     </div>

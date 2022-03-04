@@ -41,7 +41,7 @@
                         <div class="card p-4 p-xl-3 rounded shadow-lg">
                             <div class="card-body">
                                 <div class="row justify-content-around align-items-center counters">
-                                    <a href="/article/manipulate" class="col-12 col-xl-4 mb-3 mb-xl-0">
+                                    <a href="<?= BASE_URL ?>/article/manipulate" class="col-12 col-xl-4 mb-3 mb-xl-0">
                                         <div class="text-center mt-3 counter-img-container">
                                             <img src="<?= BASE_URL ?>/assets/img/undraw_blog_post_re_fy5x.svg" class="w-75 h-100" alt="Kawi Content Creator Illustration" />
 
@@ -53,7 +53,7 @@
                                             
                                         </div>
                                     </a>
-                                    <a href="/user" class="col-12 col-xl-4 mb-3 mb-xl-0">
+                                    <a href="<?= BASE_URL ?>/user" class="col-12 col-xl-4 mb-3 mb-xl-0">
                                         <div class="text-center mt-3 counter-img-container">
                                             <img src="<?= BASE_URL ?>/assets/img/undraw_team_spirit_re_yl1v.svg" class="w-75 h-100" alt="Kawi Content Creator Illustration" />
 
@@ -66,7 +66,7 @@
 
                                         
                                     </a>
-                                    <a href="/subscribers" class="col-12 col-xl-4 mb-3 mb-xl-0">
+                                    <a href="<?= BASE_URL ?>/subscribers" class="col-12 col-xl-4 mb-3 mb-xl-0">
                                         <div class="text-center mt-3 counter-img-container">
                                             <img src="<?= BASE_URL ?>/assets/img/undraw_subscriber_re_om92.svg" class="w-75 h-100" alt="Kawi Content Creator Illustration" />
 
@@ -92,7 +92,7 @@
 
                                     </div>
                                     <h6 class="my-4">Create Your Desire Ideas into Impressive Contents Now!</h6>
-                                    <a href="/article" class="btn btn-danger d-flex align-items-center justify-content-center"><img class="icon mr-2 mb-2" src="<?= BASE_URL ?>/assets/icons/icons8-create-50.png" alt="Create Content Icon" /> Create Contents</a>
+                                    <a href="<?= BASE_URL ?>/article" class="btn btn-danger d-flex align-items-center justify-content-center"><img class="icon mr-2 mb-2" src="<?= BASE_URL ?>/assets/icons/icons8-create-50.png" alt="Create Content Icon" /> Create Contents</a>
                                 </div>
                                 
                             </div>

@@ -39,7 +39,7 @@
                                             <td><?= ROLES[$user['role_id']]['role'] ?></td>
                                             <td>
                                                 <?php if ($user['role_id'] != 2): ?>
-                                                    <a href="/user/manipulate/ban?id=<?= $user['id']?>&banned=<?= $user['banned']==0 ? 'true' : 'false' ?>" class="btn btn-danger"><?= $user['banned']==0 ? 'Ban' : 'Unban' ?></a>
+                                                    <a href="<?= BASE_URL ?>/user/manipulate/ban?id=<?= $user['id']?>&banned=<?= $user['banned']==0 ? 'true' : 'false' ?>" class="btn btn-danger"><?= $user['banned']==0 ? 'Ban' : 'Unban' ?></a>
                                                 <?php endif ?>
                                             </td>
                                             <td>
@@ -50,13 +50,13 @@
                                                         </button>
                                                         <div class="dropdown-menu" >
                                                             <?php if ($user['role_id'] == 1): ?>
-                                                                <a class="dropdown-item" href="/user/manipulate/role?id=<?= $user['id'] ?>&role_id=2" onclick="return confirm('Are you sure want to change this user\'s role?')">Admin</a>
+                                                                <a class="dropdown-item" href="<?= BASE_URL ?>/user/manipulate/role?id=<?= $user['id'] ?>&role_id=2" onclick="return confirm('Are you sure want to change this user\'s role?')">Admin</a>
                                                                 <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="/user/manipulate/role?id=<?= $user['id'] ?>&role_id=0" onclick="return confirm('Are you sure want to change this user\'s role?')">User</a>
+                                                                <a class="dropdown-item" href="<?= BASE_URL ?>/user/manipulate/role?id=<?= $user['id'] ?>&role_id=0" onclick="return confirm('Are you sure want to change this user\'s role?')">User</a>
                                                             <?php else: ?>
-                                                                <a class="dropdown-item" href="/user/manipulate/role?id=<?= $user['id'] ?>&role_id=1" onclick="return confirm('Are you sure want to change this user\'s role?')">Author</a>
+                                                                <a class="dropdown-item" href="<?= BASE_URL ?>/user/manipulate/role?id=<?= $user['id'] ?>&role_id=1" onclick="return confirm('Are you sure want to change this user\'s role?')">Author</a>
                                                                 <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="/user/manipulate/role?id=<?= $user['id'] ?>&role_id=2" onclick="return confirm('Are you sure want to change this user\'s role?')">Admin</a>
+                                                                <a class="dropdown-item" href="<?= BASE_URL ?>/user/manipulate/role?id=<?= $user['id'] ?>&role_id=2" onclick="return confirm('Are you sure want to change this user\'s role?')">Admin</a>
                                                             <?php endif ?>
                                                             
                                                         </div>

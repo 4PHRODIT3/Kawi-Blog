@@ -41,7 +41,7 @@
                     <a href="<?= BASE_URL ?>/user" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Manage Users</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/user/preusers" class="nav-item-link">
+                    <a href="<?= BASE_URL ?>/user/preusers" class="nav-item-link">
                         <div class="d-flex justify-content-between align-items-center">
                             <span><i class="feather feather-list"></i> Pre Users</span>
 
@@ -55,7 +55,7 @@
                     <a href="<?= BASE_URL ?>/subscribers" class="nav-item-link"><span><i class="feather feather-plus-circle"></i>Subscribers List</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/subscribers/unverified" class="nav-item-link">
+                    <a href="<?= BASE_URL ?>/subscribers/unverified" class="nav-item-link">
                         <div class="d-flex justify-content-between align-items-center">
                             <span><i class="feather feather-list"></i> Unverified Subscribers</span>
 
@@ -69,7 +69,7 @@
                     <a href="<?= BASE_URL ?>/category" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Category List</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/category/manipulate" class="nav-item-link">
+                    <a href="<?= BASE_URL ?>/category/manipulate" class="nav-item-link">
                         <div class="d-flex justify-content-between align-items-center">
                             <span><i class="feather feather-list"></i>Category Manage</span>
                         </div>
@@ -85,7 +85,7 @@
                 <a href="<?= BASE_URL ?>/article" class="nav-item-link"><span><i class="feather feather-plus-circle"></i> Article Add</span></a>
             </li>
             <li class="nav-item">
-                <a href="/article/manipulate" class="nav-item-link">
+                <a href="<?= BASE_URL ?>/article/manipulate" class="nav-item-link">
                     <div class="d-flex justify-content-between align-items-center">
                         <span><i class="feather feather-list"></i>Article Manipulate</span>
                     </div>
@@ -106,7 +106,7 @@
             <button class="btn btn-light show-left-side-bar d-lg-none">
             <img src="<?= BASE_URL ?>/assets/icons/icons8-menu.svg"  alt="Menu Icon" class="icon">
             </button>
-            <form class="form-inline d-none d-md-block" action="/articles/search" id="search-form">
+            <form class="form-inline d-none d-md-block" action="<?= BASE_URL ?>/articles/search" id="search-form">
                 <button type="button" class="btn btn-outline-danger d-flex justify-content-center align-items-center d-none d-md-none" id="close-search-btn" onclick="closeSearchbar()">
                     Cancel Search
                 </button>
@@ -160,9 +160,9 @@
                     </button>
                     <div class="dropdown-menu">
                         
-                        <a class="dropdown-item py-2 px-3" href="/user/profile?id=<?= $auth['id'] ?>">Profile</a>
+                        <a class="dropdown-item py-2 px-3" href="<?= BASE_URL ?>/user/profile?id=<?= $auth['id'] ?>">Upcoming Feature</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item py-2 px-3" href="/user/logout" onclick="return confirm('Are you sure want to logout?')">Logout</a>
+                        <a class="dropdown-item py-2 px-3" href="<?= BASE_URL ?>/user/logout" onclick="return confirm('Are you sure want to logout?')">Logout</a>
                     
                     </div>
                 </div>

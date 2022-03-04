@@ -36,14 +36,13 @@
                                         <tr class=<?= $user['id'] == $auth['id'] ? 'active': '';  ?>>
                                                 <th scope="row"><?= $key + 1 ?></th>
                                                 <td><?= $user['name'] ?></td>
-                                            
                                                 <td>
                                                     
-                                                    <a href="/user/verify?token=<?= $user['verify_key'] ?>" class="btn btn-success">Verify</a>
+                                                    <a href="<?= BASE_URL ?>/user/verify?token=<?= $user['verify_key'] ?>" class="btn btn-success">Verify</a>
                                                     
                                                 </td>
                                                 <td>
-                                                    <a href="/user/remove?token=<?= $user['verify_token'] ?>" class="btn btn-danger">Delete</a>
+                                                    <a href="<?= BASE_URL ?>/user/remove?token=<?= $user['verify_key'] ?>" class="btn btn-danger">Delete</a>
                                                 </td>
                                                 
                                                 <td><?= date('d M Y', strtotime($user['created_at'])) ?></td>

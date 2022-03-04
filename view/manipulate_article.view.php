@@ -11,7 +11,7 @@
     require "./view/template/dashboard.view.php";
     
 ?>
-<form class="p-0" action="/article/manipulate/edit" method="POST" enctype="multipart/form-data">
+<form class="p-0" action="<?= BASE_URL ?>/article/manipulate/edit" method="POST" enctype="multipart/form-data">
     <div class="row flex-column-reverse flex-lg-row">
             <div class="col-12 col-lg-9 ">
                 <div class="card my-3 my-lg-5">

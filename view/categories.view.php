@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-body">
                     <?php printAlert() ?>
-                    <form class=" p-0" action="/category" method="POST">
+                    <form class=" p-0" action="<?= BASE_URL ?>/category" method="POST">
                         <input type="hidden" name="user_id" value="<?= $auth['id'] ?>">
                        
                         <div class="form-row justify-content-between align-items-center">

@@ -90,6 +90,7 @@ class UserController
             $token = $_GET['token'];
             if (isset($token)) {
                 App::getData('query_builder')->delete('preusers', ['verify_key' => $token]);
+                redirect('/user/preusers', '?success=Successfully Removed!');
             } else {
                 redirect('/user/preusers', '?error=Invalid Token!');
             }

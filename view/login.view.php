@@ -31,7 +31,7 @@
             <h5>Admin Panel Login</h5>
           </div>
           <div class="px-3 py-2">
-            <form action="" method="POST" class="user-form">
+            <form action="<?= BASE_URL ?>/user/login" method="POST" class="user-form">
               <div class="col-auto mb-3">
                 <?php printAlert() ?>
               </div>

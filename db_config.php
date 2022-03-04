@@ -4,7 +4,7 @@ $server_configurations = [
     'mysql_host' => 'localhost',
     'dbname' => 'kawi',
     'username' =>  'admin',
-    'password' =>  'root',
+    'password' => 'root',
 ];
 
 return $server_configurations;

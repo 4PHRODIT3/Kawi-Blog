@@ -55,7 +55,7 @@ require "./view/template/front-panel.view.php";
                             <hr class="custom-line-spacing my-4">
                             <div class="d-flex justify-content-between align-items-center" >
             
-                                <a href="/categories?id=<?= $article['category_id'] ?>" class="d-flex align-items-center link" style="font-size:16px;"><span><?= $category['title'] ?></span></a>
+                                <a href="<?= BASE_URL ?>/categories/category?id=<?= $article['category_id'] ?>" class="d-flex align-items-center link" style="font-size:16px;"><span><?= $category['title'] ?></span></a>
                                 <div class="fb-share-button" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" style="line-height: 0 !important;" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                             </div>
                             <hr class="custom-line-spacing my-4">

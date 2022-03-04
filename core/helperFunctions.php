@@ -15,6 +15,9 @@ function dd($data)
 function trimURI()
 {
     $uri = trim($_SERVER['REQUEST_URI'], '/');
+    if (stristr($uri, trim(FOLDER_NAME, '/'))) {
+        $uri =trim(str_replace(trim(FOLDER_NAME, '/'), "", $uri), "/");
+    }
     return $uri;
 }
 
