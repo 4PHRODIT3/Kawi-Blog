@@ -7,7 +7,7 @@ require "./vendor/autoload.php";
 *Be sure there is no slash after folder name.
 */
 
-define('FOLDER_NAME', '/Kawi-Blog');
+define('FOLDER_NAME', '');
 
 /*
 * Dynamic Paths for sources like image, view templates, icons and so forth
