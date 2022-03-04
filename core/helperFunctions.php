@@ -38,8 +38,7 @@ function validateForm($data)
 function redirect($path, $message='')
 {
     $url = BASE_URL.$path;
-    header("Location: $url".$message);
-    exit();
+    die(header("Location: $url".$message));
 }
 
 function includeFiles($files, $file_type)
@@ -170,7 +169,7 @@ function insertImageToDB($file)
 {
     $file = $file['content_img'];
     $allow_extensions = ['jpg','png','jpeg','webp'];
-    if (!empty($file)) {
+    if (!empty($file['name'])) {
         $file_type = explode('/', $file['type']);
         if ($file_type[0] == 'image' && in_array($file_type[1], $allow_extensions) && $file['error'] == 0) {
             $file_name = uniqid().'-'.$file['name'];

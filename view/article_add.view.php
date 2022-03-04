@@ -16,7 +16,7 @@
             <div class="col-12 col-lg-8 col-xl-9">
                 <div class="card my-3 my-lg-5">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4>Create New Content</h4>
+                        <h5>Create New Content</h5>
                         <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
                     </div>
                     <div class="card-body">

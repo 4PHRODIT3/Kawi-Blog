@@ -53,11 +53,9 @@
 
                         <hr class="custom-line-spacing my-4">
                         <div class="d-flex justify-content-between align-items-center" >
-     
-                            <a href="" class="d-flex align-items-center "><img src="<?= BASE_URL ?>/assets/icons/icons8-tag-24.png" alt="Category Icon" class="icon mr-2"> <span><?= $category['title'] ?></span></a>
-                        
-                            <a href="" class="d-flex align-items-center"><span>Share </span> <img src="<?= BASE_URL ?>/assets/icons/icons8-share-24.png" alt="Share Icon" class="icon ml-2 mb-2"> </a>
-                            
+            
+                                <a href="/categories/category?id=<?= $article['category_id'] ?>" class="d-flex align-items-center link" style="font-size:16px;"><span><?= $category['title'] ?></span></a>
+                                <div class="fb-share-button" style="line-height: 0 !important;" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                         </div>
                         <hr class="custom-line-spacing my-4">
                     </div>
@@ -66,7 +64,7 @@
         </div>
     </div>
     <div class="col-12 col-xl-4">
-        <div class="col-12">
+        <div class="col-12 px-0">
             <div class="card my-3 my-lg-5">
                 <div class="card-header p-3">
                     <h5 class="mb-0">Editor's Tools Kit</h5>
@@ -77,9 +75,9 @@
                     <?php printAlert();?>
                     <div class="btn-group my-3" role="group" aria-label="Basic example">
                         <?php if ($article['is_published'] !=0): ?>
-                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=false&csrf_token=<?= generateCSRFToken() ?>" type="button" class="btn btn-secondary">Unpublish</a>
+                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=false&csrf_token=<?= $csrf_token ?>" type="button" class="btn btn-secondary">Unpublish</a>
                         <?php else: ?>
-                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=true&csrf_token=<?= generateCSRFToken() ?>" type="button" class="btn btn-success">Publish</a>
+                            <a href="/articles/publish?id=<?= $article['id'] ?>&action=true&csrf_token=<?= $csrf_token ?>" type="button" class="btn btn-success">Publish</a>
                         <?php endif ?>
                         <a href="/article/manipulate/edit?id=<?= $article['id'] ?>" type="button" class="btn btn-warning">Edit</a>
                         
@@ -108,10 +106,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
-            <div class="card">
+        <div class="col-12 px-0 py-3 py-xl-0">
+            <div class="card mb-5 mb-xl-0">
                 <div class="card-header d-flex justify-content-between align-items-center p-4">
-                    <h6 class="mb-0">Viewers ( <?= count($viewers) ?> )</h6>
+                    <h6 class="mb-0">Viewers <span class="badge badge-info"> <?= count($viewers) ?> </span></h6>
                     <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
                 </div>
                     <div class="card-body">
@@ -150,3 +148,13 @@
 <?php
 require "./view/template/footer.view.php"
 ?>
+
+<script>
+    $(document).ready(function() {
+        $('#article_contents').summernote({
+            placeholder: '',
+            tabsize: 2,
+            height: 400
+        });
+    });
+</script>

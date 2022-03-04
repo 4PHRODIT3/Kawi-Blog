@@ -3,9 +3,11 @@ var nav_btn = document.getElementById("nav-toggler");
 nav_btn.addEventListener("click", function () {
   if ($(".custom-nav").css("left") == "0px") {
     $(".custom-nav").animate({ left: "-100%" });
+    $("body").removeClass("overflow-hidden");
     this.childNodes[1].src = "/assets/icons/icons8-menu.svg";
   } else {
     $(".custom-nav").animate({ left: "0px" });
+    $("body").addClass("overflow-hidden");
     this.childNodes[1].src = "/assets/icons/icons8-close-dark.svg";
   }
 });
@@ -49,3 +51,13 @@ window.addEventListener("scroll", function () {
 helperScroller.addEventListener("click", function scrollToTop() {
   document.documentElement.scrollTop = 0;
 });
+
+(function setActiveSidebar() {
+  let current_url = window.location.href;
+  let nav_links = document.querySelectorAll(".nav-btn a");
+  nav_links.forEach((link) => {
+    if (link.href == current_url.split("?")[0]) {
+      link.parentNode.classList.add("active");
+    }
+  });
+})();

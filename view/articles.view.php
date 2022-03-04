@@ -19,10 +19,10 @@
         <div class="col-12  ">
             <div class="card my-5">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h4>Articles Manipulation ( <?= isset($search_results) ? count($search_results) : count($articles) ?> )</h4>
+                    <h6 class="mb-0">Articles Manipulation <span class="badge badge-info"> <?= isset($search_results) ? count($search_results) : count($articles) ?></span></h6>
                     <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
                 </div>
-                <div class="card-body">
+                <div class="card-body mb-5 mb-xl-0">
                     <?php printAlert(); ?>
                     <?php if (empty($search_results) && isset($search_query)): ?>
                         <div class='alert alert-danger' role='alert'>Sorry, no results for <?= $search_query ?> </div>
@@ -30,7 +30,7 @@
                     <?php elseif (isset($search_query)): ?>
                         <div class='alert alert-success' role='alert'>Search Results for <?= $search_query ?> </div>
                     <?php endif ?>
-                    <table class="table table-striped table-responsive">
+                    <table class="table pb-3 table-striped table-responsive">
                             <thead>
                                 <tr class="text-center">
                                     <th scope="col">ID</th>
@@ -93,9 +93,11 @@
                                                         <a href="<?= BASE_URL ?>/article/manipulate/edit?id=<?= $article['id']?>" class="btn p-1 mr-2  btn-transparent edit-btn">
                                                             <img src="<?= BASE_URL ?>/assets/icons/icons8-edit.svg" alt="Edit Icon" class="icon">
                                                         </a>
-                                                        <a href="<?= BASE_URL ?>/article/manipulate/delete?id=<?= $article['id']?>&csrf_token=<?= $csrf_token ?>" class="btn p-1 btn-transparent delete-btn" onclick="return confirm('Are you sure want to Delete?')">
-                                                            <img src="<?= BASE_URL ?>/assets/icons/icons8-trash.svg" alt="Delete Icon" class="icon">
-                                                        </a>
+                                                        <?php if ($auth['role_id'] == 2): ?>
+                                                            <a href="<?= BASE_URL ?>/article/manipulate/delete?id=<?= $article['id']?>&csrf_token=<?= $csrf_token ?>" class="btn p-1 btn-transparent delete-btn" onclick="return confirm('Are you sure want to Delete?')">
+                                                                <img src="<?= BASE_URL ?>/assets/icons/icons8-trash.svg" alt="Delete Icon" class="icon">
+                                                            </a>
+                                                        <?php endif ?>
                                                 </div>
                                             </td>
                                         </tr>

@@ -43,7 +43,7 @@ class UserController
         if ($user_data['password'] != $user_data['confirm-password']) {
             redirect('/user/register', '?error=Passwords Must Be The Same');
         }
-        if (validateEmail($user_data['email'])) {
+        if (!validateEmail($user_data['email'])) {
             redirect('/user/login', "?error=Invalid Email Format!");
         }
         $key = randomKeyGen();
@@ -73,7 +73,7 @@ class UserController
                     'password' => $user_data['password'],
                 ];
                 App::getData('query_builder')->create('users', $data);
-                App::getData('query_builder')->delete('preusers', ['verify_key' => $token]);
+                App::getData('query_builder')->delete('preusers', ['id' => $user_data['id']]);
                 redirect('/user/login', '?success=Please Login.');
             } else {
                 die("Invalid Token! Please Register Again.");
@@ -100,7 +100,7 @@ class UserController
     {
         $login_data = $_POST;
         
-        if (!validateForm($login_data)) {
+        if (isset($login_data) && !validateForm($login_data)) {
             redirect('/user/login', '?error=Please Fill Missing Fields');
         }
         $user_data = App::getData('query_builder')->retrieve('users', ['email' => $login_data['email']]);
@@ -129,10 +129,12 @@ class UserController
                         'session_id' => session_id(),
                         'updated_at' => date('Y-m-d H:i:s')
                     ], ['email' => $login_data['email']]);
-                    if ($user_data[0]['role_id'] > 0) {
+                    if ($user_data[0]['role_id'] == 2) {
                         redirect("/user/admin");
+                    } elseif ($user_data[0]['role_id'] == 1) {
+                        redirect('/article');
                     } else {
-                        redirect('/');
+                        redirect("/");
                     }
                 }
             } else {
@@ -153,6 +155,7 @@ class UserController
                 redirect('/user', "?success=Successfully Updated the Role!");
             } else {
                 renderView('403');
+                die();
             }
         }
     }
@@ -175,6 +178,7 @@ class UserController
                 redirect('/user', "?success=Successfully Done!");
             } else {
                 renderView('403');
+                die();
             }
         }
     }

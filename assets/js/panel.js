@@ -1,9 +1,11 @@
 $(".show-left-side-bar").click((_) => {
   $(".left-side-bar").animate({ marginLeft: "0" });
+  $("body").addClass("overflow-hidden");
 });
 
 $(".close-left-side-bar").click((_) => {
   $(".left-side-bar").animate({ marginLeft: "-100%" });
+  $("body").removeClass("overflow-hidden");
 });
 
 $("#toggle-size").click(function () {

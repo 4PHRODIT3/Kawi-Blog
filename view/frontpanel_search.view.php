@@ -13,6 +13,8 @@ foreach ($search_results as $key => $value) {
     }
 }
 
+$displayed_articles = [];
+
 ?>
 
 <div class="row ">
@@ -31,15 +33,15 @@ foreach ($search_results as $key => $value) {
                 <div class="row">
                     <?php if (count($search_results) > 0): ?>
                         <?php foreach ($search_results as $article): ?>
-                        
+                            <?php $displayed_articles[] = $article['id'] ?>
                             <div class="col-12 col-lg-6 col-xl-4 mb-3" >
                                 <div class="article-cards" data-href="<?= BASE_URL ?>/blog?id=<?= $article['id'] ?>" onclick="showDetailArticle(this)">
                                     <img src="<?= BASE_URL ?>/assets/uploads/<?= $article['header_img'] ?>" alt="Header Image" class="w-100 h-100 rounded">
                                     <div class="py-2 px-3">
                                         <h6 class="my-3"><b><?= $article['title'] ?></b></h6>
                                         <div class="d-flex my-2">
-                                            <span class="text-danger mr-2"><?= $article['category_id'] ?></span> | 
-                                            <span class="text-dark ml-2">5 mins Read</span>
+                                            <span class="text-danger mr-2"><?= filterFromDBData($categories, $article['category_id']) ?></span> | 
+                                            <span class="text-dark ml-2"><?= $article['duration'] ?> mins Read</span>
                                         </div>
                                         <p class="text-black-50"><?= compressText($article['description'], 250) ?></p>
                                     </div>
@@ -60,6 +62,7 @@ foreach ($search_results as $key => $value) {
                 <div class="row">
                     
                     <?php foreach ($recent_articles as $recent_article): ?>
+                        <?php if (!in_array($recent_article['id'], $displayed_articles)): ?>
                             <div class="col-12 col-lg-6 col-xl-4 mb-3" >
                                 <div class="article-cards" data-href="<?= BASE_URL ?>/blog?id=<?= $recent_article['id'] ?>" onclick="showDetailArticle(this)">
                                     <img src="<?= BASE_URL ?>/assets/uploads/<?= $recent_article['header_img'] ?>" alt="Header Image" class="w-100 h-100 rounded">
@@ -73,12 +76,11 @@ foreach ($search_results as $key => $value) {
                                     </div>
                                 </div>
                             </div>
+                        <?php endif ?>
                         
                     <?php endforeach ?>
                 </div>
             </div>
-            
-            
         </div>
     </div>
 </div>

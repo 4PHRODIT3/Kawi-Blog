@@ -7,10 +7,10 @@
 ?>
 <div class="row">
     <!-- Side Bar -->
-<div class="col-12 col-lg-3 col-xl-2 left-side-bar vh-100">
-    <div class="row">
+<div class="col-12 col-lg-3 col-xl-2 pb-5 mb-lg-0 px-lg-0 left-side-bar vh-100">
+    <div class="row pb-3 pb-lg-0">
     <div
-        class="col-12 mt-4 d-flex justify-content-between "
+        class="col-12 mt-5 d-flex justify-content-between "
     >
         <div class="brand d-flex flex-column w-100 align-items-center">
     
@@ -127,7 +127,7 @@
                         class="icon"
                         />
                 </button>
-                <button
+                <!-- <button
                     class="btn btn-light btn-sm mr-2 p-2"
                     type="button"
                     style="border-radius: 50%"
@@ -148,7 +148,7 @@
                     alt="Notification Icon"
                     class="icon "
                     />
-                </button>
+                </button> -->
                 
                 <div class="btn-group">
                     <button type="button" class="btn btn-light btn-sm mr-0 mr-xl-4 p-1"  style="border-radius: 50%" onclick="showDropdown(this)" onblur="setTimeout(hideDropdown,300,this)">

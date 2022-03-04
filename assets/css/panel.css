@@ -7,9 +7,12 @@
   --dark: #111;
 }
 
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
 * {
-  letter-spacing: 0.12rem;
-
+  letter-spacing: 0.07em;
   font-family: "Noto Sans Myanmar", "Roboto", sans-serif;
 }
 .content {
@@ -344,9 +347,13 @@ section {
   height: 180px !important;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
 @media screen and (max-width: 990px) {
   .left-side-bar {
     margin-left: -100%;
+    height: -webkit-fill-available;
   }
 }
 
@@ -387,7 +394,8 @@ section {
   }
   .left-side-bar {
     position: fixed;
-    width: 85%;
+    width: 100%;
+    height: -webkit-fill-available;
     background: var(--light);
     z-index: 2001;
     margin-left: -100%;

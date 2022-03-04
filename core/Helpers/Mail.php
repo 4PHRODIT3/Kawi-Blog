@@ -11,8 +11,8 @@ class Mail
         $mail = new PHPMailer(true);
         $mail->SMTPDebug = 0;
         $mail->isSMTP();
-        $mail->SMTPSecure = "tls";
-        $mail->Host = "smtp.gmail.com";
+        $mail->SMTPSecure = "tls"; // "tls";
+        $mail->Host = "smtp.gmail.com"; // "smtp.gmail.com";
 
         $credentials = App::getData('mail_server_credentials');
 
@@ -20,7 +20,7 @@ class Mail
         $mail->Password = $credentials['password'];
 
         $mail->SMTPAuth = true;
-        $mail->Port = 587;
+        $mail->Port = "587"; // 587;
 
         $mail->From = $credentials['username'];
         $mail->FromName = "Kawi Blog";

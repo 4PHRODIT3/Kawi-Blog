@@ -13,7 +13,7 @@
         <div class="col-12 col-lg-12 col-xl-7">
             <div class="card my-5">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h4>Unverified Subscribers ( <?= count($unverified_subscribers) ?> )</h4>
+                    <h6 class="mb-0">Unverified Subscribers<span class="badge badge-info"> <?= count($unverified_subscribers) ?></span></h6>
                     <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="maximize icon" class="icon"></button>
                 </div>
                 <div class="card-body">

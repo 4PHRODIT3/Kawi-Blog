@@ -11,6 +11,7 @@ class Authorization
                 return $auth;
             } else {
                 renderView('403');
+                die();
             }
         } else {
             redirect('/user/login', "?error=Please Login to Continue!");
@@ -25,6 +26,7 @@ class Authorization
                 return $auth;
             } else {
                 renderView('403');
+                die();
             }
         } else {
             redirect('/user/login', "?error=Please Login to Continue!");

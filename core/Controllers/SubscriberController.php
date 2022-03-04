@@ -93,6 +93,7 @@ class SubscriberController
             }
         } else {
             renderView('403');
+            die();
         }
     }
 
@@ -108,6 +109,7 @@ class SubscriberController
             }
         } else {
             renderView('403');
+            die();
         }
         redirect("/subscribers/unverified", "?success=Verified Successfully");
     }

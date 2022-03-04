@@ -19,6 +19,7 @@ class DashboardController
     }
     public function adminPanel()
     {
+        $auth = Authorization::checkAuthor();
         $data = [
             'viewers' => App::getData("query_builder")->customQuery("SELECT *, CAST(viewed_at AS DATE) AS date FROM viewers WHERE viewed_at >= DATE_ADD(NOW(), INTERVAL -10 DAY)"),
             'recent_articles' => App::getData("query_builder")->customQuery("SELECT articles.title, COUNT(*) AS total_viewers FROM articles  JOIN viewers ON articles.id = viewers.article_id GROUP BY article_id ORDER BY articles.created_at DESC LIMIT 0,3"),

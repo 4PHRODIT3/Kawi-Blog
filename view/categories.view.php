@@ -14,7 +14,7 @@
         <div class="col-12 col-lg-10  ">
             <div class="card my-5">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Categories</h4>
+                    <h6 class="mb-0">Categories <span class="badge badge-info"> <?= count($categories) ?> </span></h6>
                     <button type="button" class="btn btn-transparent button-effect-remove btn-sm" id="toggle-size"><img src="<?= BASE_URL ?>/assets/icons/icons8-full-screen-64.png" alt="" class="icon"></button>
                 </div>
                 <div class="card-body">

@@ -1,11 +1,9 @@
 <?php
-
-    $auth = Authentication::check();
     
     $header_files[] = BASE_URL.'/assets/css/panel.css';
     $footer_files[] =  BASE_URL."/assets/js/panel.js";
     $footer_files[] =  BASE_URL."/node_modules/chart.js/dist/chart.min.js";
-    $meta_data['document_title'] = 'Kawi: Admin Panel';
+    $meta_data['title'] = 'Kawi: Admin Panel';
     require "./view/template/header.view.php";
     require "./view/template/dashboard.view.php";
 

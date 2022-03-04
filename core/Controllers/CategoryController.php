@@ -65,6 +65,7 @@ class CategoryController
         $id = $_GET['id'];
         if (!isset($id)) {
             redirect("/404");
+            die();
         }
         App::getData('query_builder')->delete("categories", ['id' => $id]);
         redirect("/category/manipulate", "?success=Deleted Successfully");

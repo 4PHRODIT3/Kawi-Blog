@@ -2,7 +2,6 @@
 
 $header_files[] = BASE_URL.'/assets/css/front-panel.css';
 $footer_files[] = BASE_URL.'/assets/js/front-panel.js';
-$meta_data['document_title'] = 'Kawi: Burmese Blog';
 
 require "./view/template/header.view.php";
 require "./view/template/front-panel.view.php";

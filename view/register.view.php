@@ -1,8 +1,7 @@
 <?php
 
-$header_files[] = BASE_URL.'/assets/css/user-form.css';
-$footer_files[] = BASE_URL.'/assets/js/validation.js';
-  $meta_data['document_title'] = 'Kawi: Admin Panel Register';
+  $header_files[] = BASE_URL.'/assets/css/user-form.css';
+  $footer_files[] = BASE_URL.'/assets/js/validation.js';
   include "./view/template/header.view.php";
 
   session_start();

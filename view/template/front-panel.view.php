@@ -11,7 +11,7 @@
                         <img src="<?= BASE_URL ?>/assets/img/kawi-logo.svg" class="brand svg-light" alt="Kawi Logo">
                     </a>
                 </div>
-                <li class="nav-btn mr-0 mr-xl-4  active">
+                <li class="nav-btn mr-0 mr-xl-4">
                     <a href="/" class="text-light d-flex align-items-center"><img src="<?= BASE_URL ?>/assets/icons/icons8-home-page-64.png" alt="Home Icon" class="icon mr-3"><h6 class="mb-0">Home</h6></a>
                 </li>
                 <li class="nav-btn mr-0 mr-xl-4 ">
@@ -21,7 +21,7 @@
                     <a href="/contact" class="text-light d-flex align-items-center"><img src="<?= BASE_URL ?>/assets/icons/icons8-contact-details-64.png" alt="Contact Icon" class="icon mr-3"><h6 class="mb-0">Contact US</h6></a>
                 </li>
                 <li class="nav-btn mr-0 mr-xl-4">
-                    <a href="" id="search-btn" class="text-light d-flex align-items-center"> <img src="<?= BASE_URL ?>/assets/icons/icons8-search.svg" alt="Search Icon" class="icon mr-3 svg-light"><h6 class="mb-0">Search</h6></a>
+                    <a href="#" id="search-btn" class="text-light d-flex align-items-center"> <img src="<?= BASE_URL ?>/assets/icons/icons8-search.svg" alt="Search Icon" class="icon mr-3 svg-light"><h6 class="mb-0">Search</h6></a>
                 </li>
                 
             </ul>

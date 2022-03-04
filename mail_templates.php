@@ -95,7 +95,7 @@ $templates = [
           </div>
           <h2>Email Verification</h2>
           <p>
-            Dear '. explode(' ', $name)[0] .', you recently subscribe your email on Kawi Blog. Please verify your email
+            Dear '.explode(' ', $name)[0].', you recently subscribe your email on Kawi Blog. Please verify your email
             to get high quality contents from us.
           </p>
           <p style="margin-bottom: 40px">

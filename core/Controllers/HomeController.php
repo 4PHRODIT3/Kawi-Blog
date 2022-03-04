@@ -35,6 +35,7 @@ class HomeController
             renderView('article_detail', $data);
         } else {
             renderView('404');
+            die();
         }
     }
 

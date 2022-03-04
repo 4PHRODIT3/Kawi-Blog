@@ -2,7 +2,6 @@
 
   $header_files[] = BASE_URL.'/assets/css/user-form.css';
   $footer_files[] = BASE_URL.'/assets/js/validation.js';
-  $meta_data['document_title'] = 'Kawi: Admin Panel Login';
 
   include "./view/template/header.view.php";
 

@@ -30,6 +30,7 @@ class ArticleController
             }
         } else {
             renderView('403');
+            die();
         }
     }
     public function mainpulateArticle()
@@ -88,6 +89,7 @@ class ArticleController
             }
         } else {
             renderView('403');
+            die();
         }
     }
 
@@ -100,6 +102,7 @@ class ArticleController
             redirect('/article/manipulate', '?success=Delete Successfully');
         } else {
             renderView('403');
+            die();
         }
     }
 
@@ -119,6 +122,7 @@ class ArticleController
             renderView('preview_article', $data);
         } else {
             renderView('404');
+            die();
         }
     }
 
@@ -139,6 +143,7 @@ class ArticleController
             redirect("/articles?id=$article_id", '&success=Action Successful!');
         } else {
             renderView('404');
+            die();
         }
     }
 
@@ -156,6 +161,7 @@ class ArticleController
             redirect("/articles?id=$article_id", '&success=Action Successful!');
         } else {
             renderView('404');
+            die();
         }
     }
 }
