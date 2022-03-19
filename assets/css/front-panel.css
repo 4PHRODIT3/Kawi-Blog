@@ -353,6 +353,15 @@ span {
   transform-origin:0 0;
   border-radius: 15px;
 }
+
+.newsletter-form div{
+  max-width: 500px;
+}
+
+.newsletter-form  img{
+  width: 100%;
+  height: 100%;
+}
 @media only screen and (max-width: 1200px) {
   .custom-nav {
     display: flex !important;
@@ -438,6 +447,9 @@ span {
     opacity: 1;
     filter: blur(0);
   }
+  .newsletter-form div{
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 600px) and (min-height: 768px) {
@@ -449,5 +461,12 @@ span {
     transition: 0.5s;
     opacity: 1;
     filter: blur(0);
+  }
+}
+
+@media screen and (min-width: 1500px) and (min-height: 1000px) {
+  .text-over-img p{
+    font-size: 1.1rem;
+    line-height: 40px;
   }
 }

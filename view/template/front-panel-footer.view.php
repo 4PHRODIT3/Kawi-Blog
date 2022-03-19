@@ -4,26 +4,34 @@
 <div class="row">
     <div class="col-12 newsletter-subscription-container px-0">
         <div class="newsletter-subscription w-100 h-100 d-flex align-items-center justify-content-center">
-            <div class="text-center px-3 px-md-5 py-5 px-xl-0">
-                <h2><span class="text-danger">Subscribe</span> & <span class="text-warning">Get Updated  With Us</span></h2>
-                <p class="my-4">Subscribe to receive occasional update contents.</p>
-                <form class="mt-5 mx-auto" action="<?= BASE_URL ?>/newsletter/subscribe" method="POST">
-                    <div class="form-row mx-auto" style="max-width:400px">
-                        <div class="col-12 form-group mb-5 mb-md-3">
-                            <input type="text" required class="form-control" name="name" placeholder="Name">
-                        </div>
-                        <div class="col-12 form-group mb-5 mb-md-3">
-                            <input type="email" required class="form-control" name="email" placeholder="Email">
-                        </div>
-                        <div class="col-12 " style="max-height: 78px;">
-                            <div class="g-recaptcha" data-sitekey="6Ldv5_IeAAAAADGb9f359FmTuvtOdDEr9YHlZktM"></div>
-                        </div>
-                        <div class="col-12  text-left">
-                            <button class="btn btn-danger">Subscribe</button>
-                        </div>
-                       
+            <div class="px-3 px-md-5 py-5 px-xl-0">
+                <h2 class="text-center"><span class="text-danger">Subscribe Our Newsletter</span></h2>
+
+                <div class="d-flex flex-wrap newsletter-form py-3 px-3 px-lg-0">
+                    <div class="img-container px-0 px-lg-5">
+                        <img src="<?= BASE_URL ?>/assets/img/undraw_newsletter_re_wrob.svg"  alt="Newsletter Illustartion">
                     </div>
-                </form>
+                    <div class="flex flex-col pl-0 px-0 px-lg-5">
+                        <form class="mt-5 mx-auto" action="<?= BASE_URL ?>/newsletter/subscribe" method="POST">
+                            <div class="form-row mx-auto">
+                                <div class="col-12 form-group mb-3 mb-md-4">
+                                    <input type="text" required class="form-control" name="name" placeholder="Name">
+                                </div>
+                                <div class="col-12 form-group mb-3 mb-md-4">
+                                    <input type="email" required class="form-control" name="email" placeholder="Email">
+                                </div>
+                                <div class="col-12 " style="max-height: 80px;">
+                                    <div class="g-recaptcha" data-sitekey="<?= App::getData('recaptcha')['public'] ?>"></div>
+                                </div>
+                                <div class="col-12  text-left">
+                                    <button class="btn btn-danger">Subscribe</button>
+                                </div>
+                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@ class ReCaptcha
     public static function verifyCaptcha($public_key)
     {
         $recaptcha_params = [
-            'secret' => App::getData("recaptcha_secret"),
+            'secret' => App::getData("recaptcha")['secret'],
             'response' => $public_key
         ];
         $recaptcha_url = "https://www.google.com/recaptcha/api/siteverify";

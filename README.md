@@ -9,7 +9,7 @@ Kawi is a content management system that has two panels, front panel and admin p
 
 - Article Preview ordered by pinned, most viewed and timestamp
 - Users can view articles sorted by genres
-- Efficient and Useful search bar
+- Efficient and Powerful search bar
 - Subscribe newsletter
 - Share on social media
 - Commenting and Reacting ( Upcoming Feature )

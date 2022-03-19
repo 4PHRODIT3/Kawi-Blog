@@ -43,7 +43,7 @@ require "./view/template/front-panel.view.php";
                             <textarea name="message" id="message"  rows="10" class="form-control">Hello!</textarea>
                         </div>
                         <div class="form-group" style="max-height: 60px;">
-                            <div class="g-recaptcha" data-sitekey="6Ldv5_IeAAAAADGb9f359FmTuvtOdDEr9YHlZktM"></div>
+                            <div class="g-recaptcha" data-sitekey="<?= App::getData('recaptcha')['public'] ?>"></div>
                         </div>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>

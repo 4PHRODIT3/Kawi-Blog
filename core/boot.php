@@ -36,4 +36,4 @@ date_default_timezone_set("Asia/Rangoon");
 App::bind('config', require './db_config.php');
 App::bind('query_builder', new QueryBuilder(Connection::make(App::getData('config'))));
 App::bind('mail_server_credentials', ['username' => 'kawii.official69@gmail.com','password' => "testing69" ]);
-App::bind('recaptcha_secret', "6Ldv5_IeAAAAAJSomRcOICyHFyiSgqGpOEugOKjy");
+App::bind('recaptcha', [ "secret" => "xxxxxxxxxx","public" => "xxxxxxxxxx"]);
