@@ -13,11 +13,12 @@ $router->get('search', [HomeController::class,'searchArticles']);
 $router->get("newsletter/subscribe/verification", [SubscriberController::class,'verifySubscriber']);
 $router->get("categories", [CategoryController::class,'frontPanelCategories']);
 $router->get("categories/category", [CategoryController::class,'filterByCategory']);
-$router->get("contact", [HomeController::class,'sendMessage']);
+$router->get("contact", [HomeController::class,'contact']);
 
 $router->post("user/register", [UserController::class,'createUser']);
 $router->post("user/login", [UserController::class,'loginUser']);
 $router->post("newsletter/subscribe", [SubscriberController::class,'subscribe']);
+$router->post("contact", [HomeController::class,'sendMessage']);
 
 /*
     * Routes for only Super User (Admin)

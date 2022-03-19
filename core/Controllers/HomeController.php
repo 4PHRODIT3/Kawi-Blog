@@ -56,8 +56,24 @@ class HomeController
             redirect('/');
         }
     }
-    public function sendMessage()
+    public function contact()
     {
         renderView('contact');
+    }
+    public function sendMessage()
+    {
+        $data = $_POST;
+        
+        if (ReCaptcha::verifyCaptcha($data['g-recaptcha-response'])) {
+            $message = [
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'message' => $data['message']
+            ];
+            curlPostRequest('https://formsubmit.co/f7f8ed2f45aa14c221db88d138b39867', $message);
+            redirect('/contact', '?success=Wait reply in your mailbox!');
+        } else {
+            redirect('/contact', '?error=Fill I\'m not a robot!');
+        }
     }
 }

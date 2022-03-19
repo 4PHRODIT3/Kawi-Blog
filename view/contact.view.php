@@ -25,8 +25,10 @@ require "./view/template/front-panel.view.php";
                 <div class="card form-card rounded shadow-lg">
                 
                 <div class="p-4">
-                    <form action="https://formsubmit.co/f7f8ed2f45aa14c221db88d138b39867" method="POST">
-                        
+                    <form action="<?= BASE_URL ?>/contact" method="POST">
+                        <?php if ($_GET): ?>
+                            <?php printAlert(); ?>
+                        <?php endif ?>
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name"  placeholder="Enter your name">
@@ -40,7 +42,9 @@ require "./view/template/front-panel.view.php";
                             <label for="message">Message</label>
                             <textarea name="message" id="message"  rows="10" class="form-control">Hello!</textarea>
                         </div>
-                    
+                        <div class="form-group" style="max-height: 60px;">
+                            <div class="g-recaptcha" data-sitekey="6Ldv5_IeAAAAADGb9f359FmTuvtOdDEr9YHlZktM"></div>
+                        </div>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 </div>

@@ -44,6 +44,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
     />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="tDEZdBRW"></script>
     <?php includeFiles($header_files, 'css'); ?>
     <style>

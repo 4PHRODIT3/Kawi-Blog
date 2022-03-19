@@ -202,3 +202,17 @@ function validateEmail($email)
     }
     return false;
 }
+function curlPostRequest($url, $params)
+{
+    $curl_handler = curl_init();
+    curl_setopt($curl_handler, CURLOPT_URL, $url);
+    curl_setopt($curl_handler, CURLOPT_POSTFIELDS, $params);
+    curl_setopt($curl_handler, CURLOPT_CONNECTTIMEOUT, 2);
+    curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($curl_handler);
+    curl_close($curl_handler);
+    if (!empty($response)) {
+        return json_decode($response, true);
+    }
+    return false;
+}

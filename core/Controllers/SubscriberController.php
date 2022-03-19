@@ -22,13 +22,12 @@ class SubscriberController
     public function subscribe()
     {
         $data = $_POST;
-        if (validateForm($data)) {
+        if (validateForm($data) && ReCaptcha::verifyCaptcha($data['g-recaptcha-response'])) {
             if (validateEmail($data['email'])) {
                 $ex = App::getData('query_builder')->retrieve('subscribers', ['email' => $data['email']])[0];
                 $token = randomKeyGen();
                 $name = cleanString($data['name']);
                 $email = cleanString($data['email']);
-                
                 if (empty($ex)) {
                     $data = [
                         'name' => $name,
